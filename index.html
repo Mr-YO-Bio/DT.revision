@@ -33,7 +33,7 @@
 body::before{
   content:'';
   position:fixed;inset:0;z-index:-2;
-  background-image:url('https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&w=1920&q=60');
+  background-image:url('https://picsum.photos/seed/workshop-bg/1920/1080');
   background-size:cover;background-position:center;
   filter:blur(2px) brightness(0.18);
 }
@@ -298,7 +298,7 @@ body{background:transparent;color:var(--text);font-family:var(--font-body);min-h
 
   <!-- Hero Banner -->
   <div class="hero-banner">
-    <img src="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&w=1400&q=80" alt="Workshop tools" loading="lazy"/>
+    <img src="https://picsum.photos/seed/workshop-hero/1400/600" alt="Workshop tools" loading="lazy"/>
     <div class="hero-banner-overlay">
       <div class="hero-badge">Cambridge IGCSE 0445</div>
       <h1>D<span>&amp;</span>T Revision Hub</h1>
@@ -419,50 +419,51 @@ body{background:transparent;color:var(--text);font-family:var(--font-body);min-h
    IMAGE LIBRARY — Unsplash CDN
 ═══════════════════════════════════════════════════ */
 const IMG = {
-  product_design:      'https://images.unsplash.com/photo-1612686635542-2244ed9a8b76?auto=format&fit=crop&w=600&q=80',
-  resistant_materials: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=600&q=80',
-  manufacturing:       'https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&w=600&q=80',
-  sustainability:      'https://images.unsplash.com/photo-1542601906897-ecd6059a6696?auto=format&fit=crop&w=600&q=80',
-  cadcam:              'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=600&q=80',
-  manufacturing_scale: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=600&q=80',
-  health_safety:       'https://images.unsplash.com/photo-1612872087720-bb876e2e67d1?auto=format&fit=crop&w=600&q=80',
-  quality:             'https://images.unsplash.com/photo-1587385789-73408c53d6e9?auto=format&fit=crop&w=600&q=80',
-  social_moral:        'https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=600&q=80',
-  textbook_gaps:       'https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?auto=format&fit=crop&w=600&q=80',
-  // Note topic images by keyword
-  design_process:      'https://images.unsplash.com/photo-1572177812156-58036aae439c?auto=format&fit=crop&w=600&q=80',
-  ergonomics:          'https://images.unsplash.com/photo-1593642632559-0c6d3fc62b89?auto=format&fit=crop&w=600&q=80',
-  aesthetics:          'https://images.unsplash.com/photo-1561070791-2526d30994b5?auto=format&fit=crop&w=600&q=80',
-  smart_materials:     'https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=600&q=80',
-  plastics:            'https://images.unsplash.com/photo-1605600659908-0ef719419d41?auto=format&fit=crop&w=600&q=80',
-  wood:                'https://images.unsplash.com/photo-1588416936097-41850ab3d86d?auto=format&fit=crop&w=600&q=80',
-  composites:          'https://images.unsplash.com/photo-1558618047-f4e60cad3d74?auto=format&fit=crop&w=600&q=80',
-  metals:              'https://images.unsplash.com/photo-1565193566173-7a0ee3dbe261?auto=format&fit=crop&w=600&q=80',
-  preparation:         'https://images.unsplash.com/photo-1572981779307-38b8cabb2407?auto=format&fit=crop&w=600&q=80',
-  marking_out:         'https://images.unsplash.com/photo-1590012314607-cda9d9b699ae?auto=format&fit=crop&w=600&q=80',
-  shaping:             'https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&w=600&q=80',
-  joining:             'https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?auto=format&fit=crop&w=600&q=80',
-  finishes:            'https://images.unsplash.com/photo-1589939705384-5185137a7f0f?auto=format&fit=crop&w=600&q=80',
-  energy:              'https://images.unsplash.com/photo-1466611653911-95081537e5b7?auto=format&fit=crop&w=600&q=80',
-  six_rs:              'https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?auto=format&fit=crop&w=600&q=80',
-  recycling:           'https://images.unsplash.com/photo-1604187351574-c75ca79f5807?auto=format&fit=crop&w=600&q=80',
-  obsolescence:        'https://images.unsplash.com/photo-1585771724684-38269d6639fd?auto=format&fit=crop&w=600&q=80',
-  cad_software:        'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=600&q=80',
-  cam_machines:        'https://images.unsplash.com/photo-1563770660941-20978e870e26?auto=format&fit=crop&w=600&q=80',
-  one_off:             'https://images.unsplash.com/photo-1611532736597-de2d4265fba3?auto=format&fit=crop&w=600&q=80',
-  batch:               'https://images.unsplash.com/photo-1587614382346-4ec70e388b28?auto=format&fit=crop&w=600&q=80',
-  mass:                'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=600&q=80',
-  ppe:                 'https://images.unsplash.com/photo-1612872087720-bb876e2e67d1?auto=format&fit=crop&w=600&q=80',
-  risk:                'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=600&q=80',
-  qc:                  'https://images.unsplash.com/photo-1587385789-73408c53d6e9?auto=format&fit=crop&w=600&q=80',
-  tolerances:          'https://images.unsplash.com/photo-1580795479025-93d13fd9aa6c?auto=format&fit=crop&w=600&q=80',
-  social:              'https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=600&q=80',
-  ethics:              'https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=600&q=80',
-  culture:             'https://images.unsplash.com/photo-1493476523860-a6de6ce1b0c3?auto=format&fit=crop&w=600&q=80',
-  inclusive:           'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=600&q=80',
-  tools_missing:       'https://images.unsplash.com/photo-1572981779307-38b8cabb2407?auto=format&fit=crop&w=600&q=80',
-  joints_missing:      'https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?auto=format&fit=crop&w=600&q=80',
-  finishes_missing:    'https://images.unsplash.com/photo-1589939705384-5185137a7f0f?auto=format&fit=crop&w=600&q=80',
+  // Section card & banner images
+  product_design:      'https://picsum.photos/seed/design-pencil/800/400',
+  resistant_materials: 'https://picsum.photos/seed/workshop-tools/800/400',
+  manufacturing:       'https://picsum.photos/seed/factory-machine/800/400',
+  sustainability:      'https://picsum.photos/seed/green-energy/800/400',
+  cadcam:              'https://picsum.photos/seed/computer-cad/800/400',
+  manufacturing_scale: 'https://picsum.photos/seed/production-line/800/400',
+  health_safety:       'https://picsum.photos/seed/safety-helmet/800/400',
+  quality:             'https://picsum.photos/seed/quality-measure/800/400',
+  social_moral:        'https://picsum.photos/seed/community-people/800/400',
+  textbook_gaps:       'https://picsum.photos/seed/open-textbook/800/400',
+  // Note topic images
+  design_process:      'https://picsum.photos/seed/design-sketch/600/300',
+  ergonomics:          'https://picsum.photos/seed/human-ergonomic/600/300',
+  aesthetics:          'https://picsum.photos/seed/product-colour/600/300',
+  smart_materials:     'https://picsum.photos/seed/smart-tech/600/300',
+  plastics:            'https://picsum.photos/seed/plastic-mould/600/300',
+  wood:                'https://picsum.photos/seed/timber-wood/600/300',
+  composites:          'https://picsum.photos/seed/carbon-fibre/600/300',
+  metals:              'https://picsum.photos/seed/steel-metal/600/300',
+  preparation:         'https://picsum.photos/seed/workshop-bench/600/300',
+  marking_out:         'https://picsum.photos/seed/ruler-measure/600/300',
+  shaping:             'https://picsum.photos/seed/lathe-cutting/600/300',
+  joining:             'https://picsum.photos/seed/welding-join/600/300',
+  finishes:            'https://picsum.photos/seed/paint-finish/600/300',
+  energy:              'https://picsum.photos/seed/solar-wind/600/300',
+  six_rs:              'https://picsum.photos/seed/recycle-green/600/300',
+  recycling:           'https://picsum.photos/seed/recycle-bin/600/300',
+  obsolescence:        'https://picsum.photos/seed/old-phone/600/300',
+  cad_software:        'https://picsum.photos/seed/cad-screen/600/300',
+  cam_machines:        'https://picsum.photos/seed/cnc-router/600/300',
+  one_off:             'https://picsum.photos/seed/craft-unique/600/300',
+  batch:               'https://picsum.photos/seed/batch-products/600/300',
+  mass:                'https://picsum.photos/seed/mass-factory/600/300',
+  ppe:                 'https://picsum.photos/seed/safety-ppe/600/300',
+  risk:                'https://picsum.photos/seed/hazard-warning/600/300',
+  qc:                  'https://picsum.photos/seed/caliper-check/600/300',
+  tolerances:          'https://picsum.photos/seed/precision-gauge/600/300',
+  social:              'https://picsum.photos/seed/society-people/600/300',
+  ethics:              'https://picsum.photos/seed/ethics-scales/600/300',
+  culture:             'https://picsum.photos/seed/world-culture/600/300',
+  inclusive:           'https://picsum.photos/seed/inclusive-access/600/300',
+  tools_missing:       'https://picsum.photos/seed/hand-tools/600/300',
+  joints_missing:      'https://picsum.photos/seed/wood-joint/600/300',
+  finishes_missing:    'https://picsum.photos/seed/lacquer-finish/600/300',
 };
 
 /* ═══════════════════════════════════════════════════
