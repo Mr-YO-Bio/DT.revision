@@ -1,0 +1,1390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>IGCSE D&amp;T 0445 — Revision Hub</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800;900&family=Source+Sans+3:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+:root{
+  --navy:#1e3a8a;
+  --blue:#2563eb;
+  --blue-mid:#3b82f6;
+  --blue-light:#dbeafe;
+  --blue-xlight:#eff6ff;
+  --white:#ffffff;
+  --offwhite:#f8fafc;
+  --border:#e2e8f0;
+  --text:#1e293b;
+  --muted:#64748b;
+  --green:#16a34a;
+  --green-bg:#f0fdf4;
+  --red:#dc2626;
+  --red-bg:#fef2f2;
+  --radius:8px;
+  --shadow:0 1px 3px rgba(0,0,0,.08),0 4px 16px rgba(0,0,0,.06);
+  --shadow-lg:0 8px 32px rgba(30,58,138,.12);
+  --font-head:'Outfit',sans-serif;
+  --font-body:'Source Sans 3',sans-serif;
+}
+
+/* ── BACKGROUND ── */
+body::before{
+  content:'';
+  position:fixed;inset:0;z-index:-2;
+  background-image:url('https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&w=1920&q=60');
+  background-size:cover;background-position:center;
+  filter:blur(2px) brightness(0.18);
+}
+body::after{
+  content:'';
+  position:fixed;inset:0;z-index:-1;
+  background:linear-gradient(135deg,rgba(30,58,138,0.92) 0%,rgba(15,23,42,0.88) 100%);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{background:transparent;color:var(--text);font-family:var(--font-body);min-height:100vh;font-size:16px;line-height:1.6;}
+
+/* ── HERO BANNER ── */
+.hero-banner{
+  position:relative;width:100%;height:320px;overflow:hidden;
+  margin-bottom:0;
+}
+.hero-banner img{
+  width:100%;height:100%;object-fit:cover;object-position:center;
+  filter:brightness(0.45);
+}
+.hero-banner-overlay{
+  position:absolute;inset:0;
+  background:linear-gradient(to bottom,rgba(30,58,138,0.3),rgba(15,23,42,0.7));
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  text-align:center;padding:24px;
+}
+.hero-banner-overlay h1{
+  font-family:var(--font-head);font-size:52px;font-weight:900;
+  color:#fff;text-shadow:0 2px 20px rgba(0,0,0,0.5);
+  margin-bottom:10px;letter-spacing:1px;
+}
+.hero-banner-overlay h1 span{color:#93c5fd;}
+.hero-banner-overlay p{
+  color:rgba(255,255,255,0.85);font-size:16px;max-width:560px;
+  text-shadow:0 1px 8px rgba(0,0,0,0.4);
+}
+.hero-badge{
+  display:inline-block;background:var(--blue);color:#fff;
+  font-family:var(--font-head);font-size:11px;font-weight:700;letter-spacing:2px;
+  padding:5px 14px;border-radius:20px;margin-bottom:14px;
+}
+
+/* ── SECTION CARD IMAGE ── */
+.card-img{
+  width:100%;height:140px;object-fit:cover;
+  border-radius:var(--radius) var(--radius) 0 0;
+  margin:-24px -22px 16px;width:calc(100% + 44px);
+  display:block;filter:brightness(0.85);
+  transition:filter .3s;
+}
+.s-card:hover .card-img{filter:brightness(1);}
+
+/* ── NOTE TOPIC IMAGE ── */
+.note-topic-img{
+  width:100%;height:160px;object-fit:cover;
+  border-radius:var(--radius) var(--radius) 0 0;
+  display:block;filter:brightness(0.8);
+}
+
+/* ── FLASHCARD IMAGE ── */
+.fc-card-img{
+  width:100%;max-width:640px;height:160px;object-fit:cover;
+  border-radius:var(--radius);margin-bottom:16px;
+  display:block;filter:brightness(0.85);
+  box-shadow:var(--shadow);
+}
+
+/* ── HEADER ── */
+.site-header{background:rgba(15,23,42,0.85);backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,255,255,0.1);padding:0 24px;position:sticky;top:0;z-index:100;}
+.header-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:64px;}
+.logo{display:flex;align-items:center;gap:12px;}
+.logo-badge{background:var(--blue);color:#fff;font-family:var(--font-head);font-size:11px;font-weight:700;letter-spacing:2px;padding:4px 10px;border-radius:4px;}
+.logo-title{font-family:var(--font-head);font-size:22px;font-weight:800;letter-spacing:.5px;color:#fff;}
+.logo-title span{color:#93c5fd;}
+.header-sub{font-size:12px;color:#93c5fd;letter-spacing:.5px;}
+
+/* ── WRAPPER ── */
+.page{max-width:1100px;margin:0 auto;padding:0 24px 64px;}
+
+/* ── SCREENS ── */
+.screen{display:none;}.screen.active{display:block;}
+
+/* ── HOME ── */
+.home-hero{padding:36px 0 28px;}
+.home-hero h1{font-family:var(--font-head);font-size:42px;font-weight:900;color:#fff;margin-bottom:8px;}
+.home-hero h1 span{color:#93c5fd;}
+.home-hero p{color:rgba(255,255,255,0.75);font-size:16px;max-width:560px;}
+.sections-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:18px;margin-top:8px;}
+
+/* ── SECTION CARDS ── */
+.s-card{
+  background:rgba(255,255,255,0.95);
+  border:1px solid rgba(255,255,255,0.5);
+  border-radius:var(--radius);
+  padding:0 0 20px;
+  cursor:pointer;position:relative;overflow:hidden;
+  transition:transform .2s,box-shadow .2s;
+  box-shadow:var(--shadow-lg);
+}
+.s-card::before{content:none;}
+.s-card:hover{transform:translateY(-5px);box-shadow:0 20px 48px rgba(0,0,0,0.25);}
+.card-content{padding:0 22px;}
+.card-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:10px;padding-top:16px;}
+.card-icon{font-size:28px;}
+.card-status{font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:3px 9px;border-radius:20px;background:var(--green-bg);color:var(--green);border:1px solid #bbf7d0;}
+.card-title{font-family:var(--font-head);font-size:19px;font-weight:700;color:var(--navy);margin-bottom:4px;}
+.card-sub{font-size:13px;color:var(--muted);margin-bottom:14px;line-height:1.45;}
+.card-stats{display:flex;gap:8px;flex-wrap:wrap;}
+.stat{font-size:11px;font-weight:600;padding:3px 10px;border-radius:20px;background:var(--blue-xlight);color:var(--blue);border:1px solid var(--blue-light);}
+
+/* ── VIEWER ── */
+.viewer-header{padding:32px 0 0;}
+.back-btn{display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:600;color:#93c5fd;cursor:pointer;background:none;border:none;padding:0;margin-bottom:16px;transition:color .2s;font-family:var(--font-body);}
+.back-btn:hover{color:#fff;}
+.viewer-title-row{display:flex;align-items:center;gap:14px;margin-bottom:8px;}
+.viewer-icon{font-size:40px;}
+.viewer-title{font-family:var(--font-head);font-size:38px;font-weight:900;color:#fff;}
+.viewer-desc{font-size:14px;color:rgba(255,255,255,0.65);margin-bottom:28px;}
+
+/* ── GLASS PANEL ── */
+.glass-panel{
+  background:rgba(255,255,255,0.97);
+  border-radius:var(--radius);
+  padding:28px;
+  box-shadow:var(--shadow-lg);
+  margin-bottom:24px;
+}
+
+/* ── TABS ── */
+.tabs{display:flex;gap:0;border-bottom:2px solid rgba(255,255,255,0.2);margin-bottom:28px;padding:0 4px;}
+.tab-btn{font-family:var(--font-body);font-size:14px;font-weight:600;padding:12px 24px;border:none;background:none;color:rgba(255,255,255,0.6);cursor:pointer;position:relative;transition:color .2s;letter-spacing:.3px;}
+.tab-btn::after{content:'';position:absolute;bottom:-2px;left:0;right:0;height:2px;background:#93c5fd;transform:scaleX(0);transition:transform .22s;}
+.tab-btn.active{color:#fff;}
+.tab-btn.active::after{transform:scaleX(1);}
+.panel{display:none;}.panel.active{display:block;}
+
+/* ── FLASHCARDS ── */
+.fc-wrap{display:flex;flex-direction:column;align-items:center;}
+.fc-topbar{width:100%;max-width:640px;margin-bottom:8px;}
+.fc-progress{height:5px;background:rgba(255,255,255,0.2);border-radius:3px;overflow:hidden;}
+.fc-progress-fill{height:100%;background:#93c5fd;border-radius:3px;transition:width .4s ease;width:0%;}
+.fc-meta{display:flex;justify-content:space-between;align-items:center;margin:10px 0 22px;width:100%;max-width:640px;}
+.fc-counter{font-size:13px;color:rgba(255,255,255,0.7);font-weight:500;}
+.fc-topic{font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:3px 10px;border-radius:20px;background:rgba(147,197,253,0.2);color:#93c5fd;border:1px solid rgba(147,197,253,0.3);}
+.fc-scene{width:100%;max-width:640px;height:280px;perspective:1400px;cursor:pointer;margin-bottom:20px;}
+.fc-card{width:100%;height:100%;position:relative;transform-style:preserve-3d;transition:transform .55s cubic-bezier(.4,0,.2,1);}
+.fc-card.flipped{transform:rotateY(180deg);}
+.fc-face{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;border-radius:var(--radius);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:36px 40px;text-align:center;}
+.fc-front{background:var(--white);border:2px solid var(--border);box-shadow:var(--shadow);}
+.fc-back{background:var(--navy);border:2px solid var(--navy);transform:rotateY(180deg);box-shadow:var(--shadow-lg);}
+.fc-label{font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:12px;}
+.fc-front .fc-label{color:var(--muted);}
+.fc-back .fc-label{color:#93c5fd;}
+.fc-text{font-size:17px;line-height:1.6;}
+.fc-front .fc-text{color:var(--text);}
+.fc-back .fc-text{color:#fff;font-size:15px;}
+.fc-hint{position:absolute;bottom:14px;font-size:11px;color:var(--muted);}
+.fc-actions{display:flex;gap:12px;margin-bottom:18px;width:100%;max-width:640px;justify-content:center;}
+.fc-btn{flex:1;max-width:210px;padding:11px 20px;border-radius:var(--radius);border:1.5px solid;font-family:var(--font-body);font-size:14px;font-weight:600;cursor:pointer;transition:all .18s;}
+.fc-btn.known{background:rgba(22,163,74,0.15);color:#4ade80;border-color:rgba(74,222,128,0.4);}
+.fc-btn.known:hover{background:rgba(22,163,74,0.3);}
+.fc-btn.unknown{background:rgba(220,38,38,0.15);color:#f87171;border-color:rgba(248,113,113,0.4);}
+.fc-btn.unknown:hover{background:rgba(220,38,38,0.3);}
+.fc-score-row{display:flex;gap:22px;margin-bottom:40px;}
+.fc-score-item{display:flex;align-items:center;gap:7px;font-size:13px;color:rgba(255,255,255,0.65);}
+.dot{width:9px;height:9px;border-radius:50%;}
+.dot-g{background:#4ade80;}
+.dot-r{background:#f87171;}
+.fc-complete{text-align:center;padding:48px 20px;display:none;width:100%;max-width:640px;}
+.fc-complete h3{font-family:var(--font-head);font-size:36px;font-weight:900;color:#fff;margin-bottom:8px;}
+.fc-complete p{color:rgba(255,255,255,0.7);margin-bottom:28px;line-height:1.6;}
+
+/* ── NOTES ── */
+.notes-wrap{max-width:720px;padding-bottom:64px;}
+.notes-intro{background:var(--blue-xlight);border:1px solid var(--blue-light);border-radius:var(--radius);padding:14px 18px;margin-bottom:24px;font-size:14px;color:var(--blue);line-height:1.6;}
+.note-item{background:rgba(255,255,255,0.97);border:1px solid rgba(255,255,255,0.3);border-radius:var(--radius);margin-bottom:12px;overflow:hidden;box-shadow:0 4px 20px rgba(0,0,0,0.15);}
+.note-head{display:flex;align-items:center;justify-content:space-between;padding:16px 20px;cursor:pointer;user-select:none;transition:background .18s;}
+.note-head:hover{background:var(--blue-xlight);}
+.note-head-title{font-family:var(--font-head);font-size:18px;font-weight:700;color:var(--navy);}
+.note-chevron{color:var(--blue);font-size:18px;transition:transform .28s;}
+.note-item.open .note-chevron{transform:rotate(180deg);}
+.note-body{display:none;padding:20px 22px;border-top:1px solid var(--border);}
+.note-item.open .note-body{display:block;}
+.note-summary{font-size:14px;color:var(--blue);font-style:italic;margin-bottom:14px;padding:10px 14px;background:var(--blue-xlight);border-radius:6px;}
+.note-paras p{font-size:15px;line-height:1.75;margin-bottom:12px;color:var(--text);}
+.note-kp{margin:18px 0 0;}
+.note-kp-title{font-family:var(--font-head);font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--blue);margin-bottom:10px;}
+.note-kp ul{list-style:none;padding:0;}
+.note-kp li{font-size:14px;line-height:1.6;padding:8px 0 8px 22px;position:relative;border-bottom:1px solid var(--border);color:var(--text);}
+.note-kp li::before{content:'▸';position:absolute;left:0;color:var(--blue);font-size:12px;top:10px;}
+.note-kp li:last-child{border-bottom:none;}
+.note-terms{margin-top:18px;display:flex;flex-direction:column;gap:8px;}
+.keyterm{background:var(--blue-xlight);border-left:4px solid var(--blue);border-radius:0 6px 6px 0;padding:10px 14px;}
+.keyterm-word{font-weight:700;font-size:14px;color:var(--navy);margin-bottom:3px;}
+.keyterm-def{font-size:13px;color:var(--muted);line-height:1.5;}
+
+/* ── QUIZ ── */
+.quiz-wrap{max-width:660px;padding-bottom:64px;}
+.quiz-topbar{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;}
+.quiz-qnum{font-size:13px;color:rgba(255,255,255,0.65);font-weight:500;}
+.quiz-score-disp{font-size:13px;font-weight:700;color:#93c5fd;}
+.quiz-prog{height:5px;background:rgba(255,255,255,0.2);border-radius:3px;overflow:hidden;margin-bottom:28px;}
+.quiz-prog-fill{height:100%;background:#93c5fd;border-radius:3px;transition:width .38s ease;}
+.quiz-q{font-size:18px;font-weight:600;line-height:1.55;margin-bottom:22px;color:#fff;}
+.quiz-opts{display:flex;flex-direction:column;gap:10px;margin-bottom:20px;}
+.quiz-opt{padding:13px 18px;background:rgba(255,255,255,0.95);border:1.5px solid rgba(255,255,255,0.3);border-radius:var(--radius);cursor:pointer;font-size:14px;text-align:left;font-family:var(--font-body);color:var(--text);transition:all .18s;line-height:1.5;box-shadow:0 2px 8px rgba(0,0,0,0.15);}
+.quiz-opt:hover:not(:disabled){border-color:var(--blue);background:#fff;color:var(--blue);}
+.quiz-opt.correct{background:var(--green-bg);border-color:var(--green);color:var(--green);}
+.quiz-opt.wrong{background:var(--red-bg);border-color:var(--red);color:var(--red);}
+.quiz-opt:disabled{cursor:default;}
+.quiz-exp{background:rgba(255,255,255,0.95);border-left:4px solid #93c5fd;border-radius:0 var(--radius) var(--radius) 0;padding:12px 16px;font-size:14px;line-height:1.6;color:var(--text);margin-bottom:20px;display:none;box-shadow:0 2px 8px rgba(0,0,0,0.15);}
+.quiz-exp.show{display:block;}
+.quiz-results{text-align:center;padding:48px 20px;display:none;}
+.quiz-results h3{font-family:var(--font-head);font-size:36px;font-weight:900;color:#fff;margin-bottom:6px;}
+.big-score{font-family:var(--font-head);font-size:88px;font-weight:900;color:#93c5fd;line-height:1;margin:16px 0;}
+.quiz-results p{color:rgba(255,255,255,0.7);margin-bottom:28px;font-size:15px;}
+.btn-row{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;}
+
+/* ── BUTTONS ── */
+.btn-primary{background:var(--blue);color:#fff;border:none;padding:12px 28px;border-radius:var(--radius);font-family:var(--font-body);font-size:14px;font-weight:600;cursor:pointer;transition:background .2s;display:none;}
+.btn-primary.show{display:inline-block;}
+.btn-primary:hover{background:#1d4ed8;}
+.btn-ghost{background:rgba(255,255,255,0.12);color:#fff;border:1.5px solid rgba(255,255,255,0.3);padding:12px 28px;border-radius:var(--radius);font-family:var(--font-body);font-size:14px;font-weight:600;cursor:pointer;transition:all .2s;}
+.btn-ghost:hover{background:rgba(255,255,255,0.2);}
+
+/* ── TEXTBOOK ALERT ── */
+.textbook-alert{background:#fffbeb;border:1.5px solid #fcd34d;border-radius:var(--radius);padding:16px 20px;margin-bottom:28px;font-size:14px;line-height:1.7;color:#92400e;}
+.textbook-alert strong{color:#78350f;}
+
+/* ── FOOTER ── */
+.site-footer{background:rgba(15,23,42,0.85);backdrop-filter:blur(12px);border-top:1px solid rgba(255,255,255,0.1);color:#93c5fd;text-align:center;padding:20px;font-size:12px;letter-spacing:.5px;margin-top:0;}
+
+/* ── RESPONSIVE ── */
+@media(max-width:600px){
+  .home-hero h1{font-size:30px;}
+  .viewer-title{font-size:28px;}
+  .fc-scene{height:240px;}
+  .fc-text{font-size:15px;}
+  .tabs{overflow-x:auto;}
+  .tab-btn{white-space:nowrap;padding:12px 16px;}
+  .big-score{font-size:64px;}
+}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <div class="logo">
+      <span class="logo-badge">0445</span>
+      <span class="logo-title">D<span>&amp;</span>T Revision</span>
+    </div>
+    <div class="header-sub">Cambridge IGCSE · Resistant Materials</div>
+  </div>
+</header>
+
+<div class="page">
+
+<!-- HOME -->
+<div id="screen-home" class="screen active">
+
+  <!-- Hero Banner -->
+  <div class="hero-banner">
+    <img src="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&w=1400&q=80" alt="Workshop tools" loading="lazy"/>
+    <div class="hero-banner-overlay">
+      <div class="hero-badge">Cambridge IGCSE 0445</div>
+      <h1>D<span>&amp;</span>T Revision Hub</h1>
+      <p>Flashcards, structured notes and quizzes for your Cambridge IGCSE Design &amp; Technology exam — Resistant Materials</p>
+    </div>
+  </div>
+
+  <div class="page">
+    <div class="home-hero">
+      <h1>Choose a <span>Topic</span></h1>
+      <p>Ten sections covering the full 0445 syllabus — including everything your textbook missed.</p>
+    </div>
+    <div class="sections-grid" id="sections-grid"></div>
+  </div>
+</div>
+
+<!-- SECTION VIEWER -->
+<div id="screen-section" class="screen">
+
+  <!-- Section image banner -->
+  <div class="hero-banner" id="section-banner" style="height:200px;">
+    <img id="section-banner-img" src="" alt="Section banner" loading="lazy"/>
+    <div class="hero-banner-overlay" style="justify-content:flex-end;align-items:flex-start;padding:20px 28px;">
+    </div>
+  </div>
+
+  <div class="page">
+  <div class="viewer-header">
+    <button class="back-btn" id="back-btn">← All Topics</button>
+    <div class="viewer-title-row">
+      <span class="viewer-icon" id="viewer-icon"></span>
+      <h2 class="viewer-title" id="viewer-title"></h2>
+    </div>
+    <p class="viewer-desc" id="viewer-desc"></p>
+  </div>
+  <div class="tabs">
+    <button class="tab-btn active" data-tab="flashcards">⟳ &nbsp;Flashcards</button>
+    <button class="tab-btn" data-tab="notes">📋 &nbsp;Notes</button>
+    <button class="tab-btn" data-tab="quiz">✓ &nbsp;Quiz</button>
+  </div>
+
+  <!-- FLASHCARDS -->
+  <div id="panel-flashcards" class="panel active">
+    <div class="fc-wrap">
+      <img class="fc-card-img" id="fc-card-img" src="" alt="" loading="lazy"/>
+      <div class="fc-topbar"><div class="fc-progress"><div class="fc-progress-fill" id="fc-fill"></div></div></div>
+      <div class="fc-meta">
+        <span class="fc-counter" id="fc-counter"></span>
+        <span class="fc-topic" id="fc-topic"></span>
+      </div>
+      <div class="fc-scene" id="fc-scene" onclick="flipCard()">
+        <div class="fc-card" id="fc-card">
+          <div class="fc-face fc-front">
+            <div class="fc-label">Question</div>
+            <div class="fc-text" id="fc-q"></div>
+            <span class="fc-hint">tap to reveal answer</span>
+          </div>
+          <div class="fc-face fc-back">
+            <div class="fc-label">Answer</div>
+            <div class="fc-text" id="fc-a"></div>
+          </div>
+        </div>
+      </div>
+      <div class="fc-actions" id="fc-actions">
+        <button class="fc-btn unknown" onclick="nextCard(false)">✕ &nbsp;Still learning</button>
+        <button class="fc-btn known" onclick="nextCard(true)">✓ &nbsp;Got it</button>
+      </div>
+      <div class="fc-score-row">
+        <div class="fc-score-item"><div class="dot dot-g"></div><span id="fc-known">0 known</span></div>
+        <div class="fc-score-item"><div class="dot dot-r"></div><span id="fc-learning">0 to review</span></div>
+      </div>
+      <div class="fc-complete" id="fc-complete">
+        <h3 id="fc-complete-title"></h3>
+        <p id="fc-complete-msg"></p>
+        <button class="btn-ghost" onclick="restartFlashcards()" style="margin-right:10px;">↺ Restart all</button>
+        <button class="btn-primary show" id="review-btn" onclick="reviewUnknown()">Review missed cards</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- NOTES -->
+  <div id="panel-notes" class="panel">
+    <div class="notes-wrap" id="notes-wrap"></div>
+  </div>
+
+  <!-- QUIZ -->
+  <div id="panel-quiz" class="panel">
+    <div class="quiz-wrap">
+      <div id="quiz-active">
+        <div class="quiz-topbar">
+          <span class="quiz-qnum" id="quiz-qnum"></span>
+          <span class="quiz-score-disp" id="quiz-score-disp"></span>
+        </div>
+        <div class="quiz-prog"><div class="quiz-prog-fill" id="quiz-fill"></div></div>
+        <div class="quiz-q" id="quiz-q"></div>
+        <div class="quiz-opts" id="quiz-opts"></div>
+        <div class="quiz-exp" id="quiz-exp"></div>
+        <button class="btn-primary" id="btn-next" onclick="nextQuestion()">Next →</button>
+      </div>
+      <div class="quiz-results" id="quiz-results">
+        <h3>Quiz Complete!</h3>
+        <div class="big-score" id="quiz-big"></div>
+        <p id="quiz-msg"></p>
+        <div class="btn-row">
+          <button class="btn-ghost" onclick="restartQuiz()">↺ Try Again</button>
+          <button class="btn-primary show" onclick="switchTab('flashcards')">Review Flashcards</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div><!-- /page -->
+</div><!-- /screen-section -->
+
+<footer class="site-footer">Cambridge IGCSE Design &amp; Technology 0445 — Resistant Materials Revision Hub</footer>
+
+<script>
+/* ═══════════════════════════════════════════════════
+   IMAGE LIBRARY — Unsplash CDN
+═══════════════════════════════════════════════════ */
+const IMG = {
+  product_design:      'https://images.unsplash.com/photo-1612686635542-2244ed9a8b76?auto=format&fit=crop&w=600&q=80',
+  resistant_materials: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=600&q=80',
+  manufacturing:       'https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&w=600&q=80',
+  sustainability:      'https://images.unsplash.com/photo-1542601906897-ecd6059a6696?auto=format&fit=crop&w=600&q=80',
+  cadcam:              'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=600&q=80',
+  manufacturing_scale: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=600&q=80',
+  health_safety:       'https://images.unsplash.com/photo-1612872087720-bb876e2e67d1?auto=format&fit=crop&w=600&q=80',
+  quality:             'https://images.unsplash.com/photo-1587385789-73408c53d6e9?auto=format&fit=crop&w=600&q=80',
+  social_moral:        'https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=600&q=80',
+  textbook_gaps:       'https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?auto=format&fit=crop&w=600&q=80',
+  // Note topic images by keyword
+  design_process:      'https://images.unsplash.com/photo-1572177812156-58036aae439c?auto=format&fit=crop&w=600&q=80',
+  ergonomics:          'https://images.unsplash.com/photo-1593642632559-0c6d3fc62b89?auto=format&fit=crop&w=600&q=80',
+  aesthetics:          'https://images.unsplash.com/photo-1561070791-2526d30994b5?auto=format&fit=crop&w=600&q=80',
+  smart_materials:     'https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=600&q=80',
+  plastics:            'https://images.unsplash.com/photo-1605600659908-0ef719419d41?auto=format&fit=crop&w=600&q=80',
+  wood:                'https://images.unsplash.com/photo-1588416936097-41850ab3d86d?auto=format&fit=crop&w=600&q=80',
+  composites:          'https://images.unsplash.com/photo-1558618047-f4e60cad3d74?auto=format&fit=crop&w=600&q=80',
+  metals:              'https://images.unsplash.com/photo-1565193566173-7a0ee3dbe261?auto=format&fit=crop&w=600&q=80',
+  preparation:         'https://images.unsplash.com/photo-1572981779307-38b8cabb2407?auto=format&fit=crop&w=600&q=80',
+  marking_out:         'https://images.unsplash.com/photo-1590012314607-cda9d9b699ae?auto=format&fit=crop&w=600&q=80',
+  shaping:             'https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&w=600&q=80',
+  joining:             'https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?auto=format&fit=crop&w=600&q=80',
+  finishes:            'https://images.unsplash.com/photo-1589939705384-5185137a7f0f?auto=format&fit=crop&w=600&q=80',
+  energy:              'https://images.unsplash.com/photo-1466611653911-95081537e5b7?auto=format&fit=crop&w=600&q=80',
+  six_rs:              'https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?auto=format&fit=crop&w=600&q=80',
+  recycling:           'https://images.unsplash.com/photo-1604187351574-c75ca79f5807?auto=format&fit=crop&w=600&q=80',
+  obsolescence:        'https://images.unsplash.com/photo-1585771724684-38269d6639fd?auto=format&fit=crop&w=600&q=80',
+  cad_software:        'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=600&q=80',
+  cam_machines:        'https://images.unsplash.com/photo-1563770660941-20978e870e26?auto=format&fit=crop&w=600&q=80',
+  one_off:             'https://images.unsplash.com/photo-1611532736597-de2d4265fba3?auto=format&fit=crop&w=600&q=80',
+  batch:               'https://images.unsplash.com/photo-1587614382346-4ec70e388b28?auto=format&fit=crop&w=600&q=80',
+  mass:                'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=600&q=80',
+  ppe:                 'https://images.unsplash.com/photo-1612872087720-bb876e2e67d1?auto=format&fit=crop&w=600&q=80',
+  risk:                'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=600&q=80',
+  qc:                  'https://images.unsplash.com/photo-1587385789-73408c53d6e9?auto=format&fit=crop&w=600&q=80',
+  tolerances:          'https://images.unsplash.com/photo-1580795479025-93d13fd9aa6c?auto=format&fit=crop&w=600&q=80',
+  social:              'https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=600&q=80',
+  ethics:              'https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=600&q=80',
+  culture:             'https://images.unsplash.com/photo-1493476523860-a6de6ce1b0c3?auto=format&fit=crop&w=600&q=80',
+  inclusive:           'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=600&q=80',
+  tools_missing:       'https://images.unsplash.com/photo-1572981779307-38b8cabb2407?auto=format&fit=crop&w=600&q=80',
+  joints_missing:      'https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?auto=format&fit=crop&w=600&q=80',
+  finishes_missing:    'https://images.unsplash.com/photo-1589939705384-5185137a7f0f?auto=format&fit=crop&w=600&q=80',
+};
+
+/* ═══════════════════════════════════════════════════
+   SECTION DATA
+═══════════════════════════════════════════════════ */
+const SECTIONS = [
+
+/* ─────────────────── 1. PRODUCT DESIGN ─────────────────── */
+{
+  id:'product_design', icon:'✏️', title:'Product Design',
+  subtitle:'Design process, specifications, ergonomics & aesthetics',
+  flashcards:[
+    {topic:'Design Process',question:'What is a design brief?',answer:'A short statement that describes the problem or need to be solved and gives context for the design task, without stating a specific solution.'},
+    {topic:'Design Process',question:'What is a design specification?',answer:'A detailed list of measurable requirements and criteria that the final product must meet — covering function, materials, safety, aesthetics, size, cost and user needs.'},
+    {topic:'Design Process',question:'What is meant by ergonomics in product design?',answer:'The study of designing products to fit the human body and its capabilities, ensuring comfort, safety and efficiency when people use the product.'},
+    {topic:'Design Process',question:'What is anthropometrics?',answer:'The measurement and study of human body dimensions. Designers use percentile data (e.g. 5th–95th percentile) to ensure products fit most users.'},
+    {topic:'Design Process',question:'What does iterative design mean?',answer:'A cyclic design process where ideas are repeatedly tested, evaluated and improved. Each cycle refines the product closer to meeting the specification.'},
+    {topic:'Design Process',question:'What is the purpose of a prototype?',answer:'To test ideas, form and function before committing to full production. Prototypes allow designers to identify problems early and refine their design.'},
+    {topic:'Design Process',question:'Name THREE things a design specification should address.',answer:'Function (what it must do), Size/dimensions, Target user, Materials, Safety requirements, Aesthetics, Cost limit, Environmental impact — any three.'},
+    {topic:'Aesthetics & Function',question:'What is meant by "form follows function"?',answer:'The principle that a product\'s shape and visual design should primarily be based on its intended purpose and how it works, rather than purely decorative choices.'},
+    {topic:'Aesthetics & Function',question:'What are the main aesthetic qualities designers consider?',answer:'Colour, form/shape, texture, line, pattern, proportion and symmetry — combined to create a product that is visually appealing to its target market.'},
+    {topic:'Target Market',question:'What is a target market?',answer:'A specific group of people a product is designed and marketed for, defined by factors such as age, gender, lifestyle, income or interests.'},
+    {topic:'Target Market',question:'Why do designers use questionnaires and surveys?',answer:'To gather information from potential users about their needs, preferences and opinions, helping shape the design specification and ensuring the product meets real user requirements.'},
+    {topic:'Target Market',question:'What is user testing?',answer:'Observing real users interacting with a prototype or product to identify problems with usability, safety or comfort, then using findings to improve the design.'},
+    {topic:'Product Analysis',question:'What does ACCESS FM stand for?',answer:'Aesthetics, Cost, Customer, Environment, Size, Safety, Function, Materials — a framework for analysing existing products.'},
+    {topic:'Product Analysis',question:'Why is product analysis useful to a designer?',answer:'It reveals how existing products work, what materials are used, what they cost, and where they succeed or fail — informing the development of new or improved designs.'},
+    {topic:'Product Analysis',question:'What is meant by disassembly in product analysis?',answer:'Taking a product apart to study how it is constructed, what components it uses, how parts are joined and what materials were selected for each part.'},
+    {topic:'Design Process',question:'What is a 5th percentile user and why does it matter?',answer:'A user whose body measurements are smaller than 95% of the population. Designers use 5th–95th percentile data to ensure products fit the majority of users without excluding very small or very large people.'},
+    {topic:'Design Process',question:'What is the difference between primary and secondary research?',answer:'Primary research is firsthand data collected directly (surveys, interviews, observations). Secondary research uses existing sources (books, internet, reports). Both inform the design specification.'},
+    {topic:'Aesthetics & Function',question:'Give three elements of aesthetics a designer must consider.',answer:'Colour (mood and cultural meaning), Form/shape (organic vs geometric), Texture (tactile and visual quality), Proportion (balance and harmony), Line (direction and flow) — any three.'},
+  ],
+  notes:[
+    {title:'The Design Process',summary:'A systematic iterative cycle from identifying a need to evaluating a final product.',
+     paragraphs:['The design process provides a structured approach to solving design problems. It begins with identifying a need or problem, which leads to a design brief. Research is then conducted to understand context, user needs and existing products before a specification is written.','Ideas are generated using techniques such as brainstorming, mood boards or annotated sketches, then developed and refined through prototyping. The final product is made, tested against the specification and evaluated.'],
+     keyPoints:['Design brief → states the problem without giving a solution','Research → primary (surveys, interviews) and secondary (books, internet)','Design specification → measurable criteria the product must meet','Idea generation → sketches, thumbnails, annotated drawings','Development → refining through prototypes and testing','Evaluation → testing against specification; identifying improvements'],
+     keyTerms:[{term:'Design Brief',definition:'A written statement outlining the design problem or need to be solved.'},{term:'Design Specification',definition:'A detailed list of measurable criteria the product must satisfy.'},{term:'Iterative Design',definition:'Repeatedly testing, evaluating and improving a design through multiple cycles.'},{term:'Prototype',definition:'An early model built to test and develop the design concept.'}]},
+    {title:'Ergonomics & Anthropometrics',summary:'Designing products that fit human bodies, movement patterns and cognitive abilities.',
+     paragraphs:['Ergonomics is the science of designing products so they match the needs, capabilities and limitations of their users. An ergonomically designed product improves comfort, reduces fatigue and minimises injury risk.','Anthropometrics provides the body measurement data on which ergonomic decisions are based. Designers use percentile data — for example the 5th and 95th percentile — to set dimensions that will fit the majority of the target population.'],
+     keyPoints:['Ergonomics = human factors (physical, cognitive, environmental)','5th–95th percentile range covers 90% of the target population','Grip diameter, seat height, reach distances are typical anthropometric measures','Products difficult or dangerous to use have poor ergonomics','Inclusive design aims to accommodate as wide a range of users as possible'],
+     keyTerms:[{term:'Ergonomics',definition:'Designing products to fit human physical and cognitive abilities.'},{term:'Anthropometrics',definition:'The scientific measurement of human body dimensions used to inform design.'},{term:'Percentile',definition:'A statistical measure; e.g. 50th percentile = the average; 5th = smaller than 95% of the population.'}]},
+    {title:'Aesthetics & Product Analysis',summary:'Visual qualities and the ACCESS FM framework for evaluating existing products.',
+     paragraphs:['Aesthetics encompasses the sensory qualities of a product — how it looks, feels and sometimes sounds. Designers make deliberate choices about colour, form, texture, line, proportion and pattern to appeal to the target market.','Product analysis using ACCESS FM helps designers study existing products systematically — learning what works, what doesn\'t, and identifying opportunities for improvement.'],
+     keyPoints:['Aesthetics — Colour, Form, Texture, Line, Proportion, Pattern','Form follows function — shape serves purpose, not just decoration','ACCESS FM: Aesthetics, Cost, Customer, Environment, Size, Safety, Function, Materials','Disassembly — taking apart to investigate components and construction','Target market preferences must guide all aesthetic decisions'],
+     keyTerms:[{term:'Aesthetics',definition:'The visual, tactile and sensory qualities that determine how attractive a product is.'},{term:'ACCESS FM',definition:'A product analysis framework: Aesthetics, Cost, Customer, Environment, Size, Safety, Function, Materials.'},{term:'Target Market',definition:'The specific group of people for whom a product is designed and marketed.'}]},
+  ],
+  mcqs:[
+    {question:'A designer writes: "Create a storage solution for a student bedroom." This is an example of a:',options:['Design specification','Design brief','Product analysis','User evaluation'],correct:1,explanation:'A design brief is a short statement of the problem or need. It identifies what is required without specifying a solution.'},
+    {question:'Which of the following would NOT typically appear in a design specification?',options:['The product must cost no more than £20 to manufacture','The product must be suitable for children aged 6–10','The product could be a box or a bag','The product must withstand a load of 5 kg'],correct:2,explanation:'"The product could be a box or a bag" is a design idea, not a specification criterion. Specifications contain measurable requirements.'},
+    {question:'Anthropometrics data is most useful to a designer when:',options:['Choosing which colour to paint a product','Deciding how much a product should cost','Determining the dimensions and reach distances for a product','Selecting a manufacturing process'],correct:2,explanation:'Anthropometrics provides human body measurement data that designers apply to set dimensions so products physically fit their users.'},
+    {question:'A product designed for the 5th to 95th percentile of users will:',options:['Fit every possible user perfectly','Fit approximately 90% of the target population','Only fit very small users','Only fit average-sized users'],correct:1,explanation:'Designing from the 5th to 95th percentile accommodates 90% of the population.'},
+    {question:'What does the "F" stand for in the ACCESS FM product analysis framework?',options:['Form','Finish','Function','Flexibility'],correct:2,explanation:'In ACCESS FM, F stands for Function — whether the product effectively performs its intended purpose.'},
+    {question:'The principle "form follows function" means that:',options:['Products should look as good as possible regardless of how they work','The visual design of a product should primarily serve its purpose','All products should have simple geometric shapes','Function is more important than safety'],correct:1,explanation:'"Form follows function" means the shape and appearance of a product should derive from its intended use.'},
+    {question:'Which research method gives a designer the most direct information about user preferences?',options:['Reading an industry report online','Analysing a competitor\'s product','Conducting a questionnaire with potential users','Watching a video about manufacturing'],correct:2,explanation:'A questionnaire directed at potential users is primary research — it gathers firsthand opinions directly from the target market.'},
+    {question:'Why do designers create prototypes during the development stage?',options:['To produce the final product ready for sale','To test and evaluate ideas before committing to full production','To analyse competitor products','To write the design specification'],correct:1,explanation:'Prototypes allow designers to evaluate form, fit and function before spending money on full-scale production.'},
+  ]
+},
+
+/* ─────────────────── 2. RESISTANT MATERIALS ─────────────────── */
+{
+  id:'resistant_materials', icon:'🔩', title:'Resistant Materials',
+  subtitle:'Units 3.1–3.6: Properties, plastics, wood, metals & composites',
+  flashcards:[
+    {topic:'Types & Properties',question:'Name the five main categories of resistant materials.',answer:'Woods, Metals, Plastics, Composites, and Smart/Modern materials.'},
+    {topic:'Types & Properties',question:'What is the difference between a physical property and a working property?',answer:'A physical property describes how a material behaves under specific conditions (e.g. thermal, magnetic). A working property describes how it behaves when being worked or shaped (e.g. hardness, ductility).'},
+    {topic:'Types & Properties',question:'Define ductility.',answer:'The ability to change shape by stretching along its length without snapping — e.g. drawing copper into wire.'},
+    {topic:'Types & Properties',question:'Define malleability.',answer:'The ability to permanently change shape in all directions while retaining structural integrity — e.g. hammering aluminium into a bowl.'},
+    {topic:'Types & Properties',question:'Define toughness.',answer:'The ability to withstand blows or momentary shocks (live forces) without fracturing.'},
+    {topic:'Types & Properties',question:'Define elasticity as a working property.',answer:'The ability to bend and then return to its original shape and size after the force is removed.'},
+    {topic:'Types & Properties',question:'Define hardness as a working property.',answer:'The ability to resist wear-and-tear, scratching and dents — usually related to the surface of a material.'},
+    {topic:'Smart Materials',question:'What is a smart material?',answer:'A material whose properties change in response to environmental conditions such as temperature, light or electrical current. They react independently and may have a "memory".'},
+    {topic:'Smart Materials',question:'What is a Shape Memory Alloy (SMA) and give one use?',answer:'An alloy of nickel and titanium (nitinol) that returns to its original shape when heated above 90°C. Used in medical stents that expand inside blood vessels using body heat.'},
+    {topic:'Smart Materials',question:'What are thermochromic inks and give one use?',answer:'Materials that change colour in response to temperature. Used in forehead thermometer strips and food packaging.'},
+    {topic:'Smart Materials',question:'What is polymorph?',answer:'A material in small pellets that fuses when heated to 62°C, becoming mouldable into a tough polymer. Used to prototype handles and components.'},
+    {topic:'Plastics',question:'What is the difference between thermoforming and thermosetting plastics?',answer:'Thermoforming plastics soften when heated and can be repeatedly reshaped. Thermosetting plastics permanently harden when heat triggers a chemical reaction and cannot be softened again.'},
+    {topic:'Plastics',question:'Give two properties and two uses of acrylic (PMMA).',answer:'Properties: hard, good UV and weather resistance. Uses: aircraft canopies, bathroom baths, signs, headlight lenses.'},
+    {topic:'Plastics',question:'What is ABS and why is it commonly used?',answer:'Acrylonitrile-butadiene-styrene — durable, impact resistant with rubber-like characteristics. Used for phone cases, tool housings and boat hulls.'},
+    {topic:'Plastics',question:'What is urea formaldehyde (UF) and give two uses?',answer:'A thermosetting plastic with high tensile strength and low water absorption. Used for buttons, toilet seats, electrical fittings and as an adhesive to bond MDF.'},
+    {topic:'Plastics',question:'What is phenol formaldehyde (PF) and give two uses?',answer:'A hard, chemically resistant thermosetting polymer with good thermal stability. Used for laboratory worktops, billiard balls and printed circuit boards.'},
+    {topic:'Wood',question:'What is the difference between hardwood and softwood?',answer:'Hardwood comes from deciduous trees (shed leaves in autumn) e.g. oak, beech. Softwood comes from coniferous trees (evergreen, bear cones) e.g. pine, spruce. The names do NOT refer to actual hardness.'},
+    {topic:'Wood',question:'Why must timber be seasoned before use?',answer:'To remove moisture content. Unseasoned timber shrinks and warps as it dries, causing poor joints and unstable products.'},
+    {topic:'Wood',question:'What is MDF and what are its key advantages?',answer:'Medium Density Fibreboard — fine wood dust and resin pressed into boards. No grain direction, uniform, easy to machine, and can be finished with veneer or paint.'},
+    {topic:'Wood',question:'What is PAR timber?',answer:'Planed All Round — timber with planed smooth edges. Actual size is smaller than stated due to planing. A 50×25mm PAR measures approximately 45×20mm.'},
+    {topic:'Wood',question:'Compare PVA, epoxy resin and synthetic resin adhesives in terms of curing and strength.',answer:'PVA — sets in ~24 hours, moderate strength, not waterproof. Epoxy resin — fast set (5–30 min) or standard (hours), very high strength, waterproof. Synthetic resin — mixed with water, sets in hours, water-resistant, stronger than PVA.'},
+    {topic:'Wood',question:'What does FSC certification mean?',answer:'Forest Stewardship Council — confirms timber comes from a sustainably managed forest where trees are replanted to replace those harvested.'},
+    {topic:'Metals',question:'What is the difference between ferrous and non-ferrous metals?',answer:'Ferrous metals contain iron and will rust unless protected. Non-ferrous metals do not contain iron and do not rust.'},
+    {topic:'Metals',question:'What is an alloy? Give one example.',answer:'A mixture of two or more metals combined to produce improved properties. Example: stainless steel is iron alloyed with chromium and nickel to resist corrosion.'},
+    {topic:'Metals',question:'What is annealing and why is it done?',answer:'Heating a metal to a specific temperature and cooling it to soften it. Done after work hardening to restore malleability so the metal can be worked again.'},
+    {topic:'Metals',question:'Give two properties and two uses of mild steel.',answer:'Properties: tough, ductile, malleable, good tensile strength. Uses: general engineering, nuts and bolts, car body panels, construction.'},
+    {topic:'Metals',question:'What is the difference between hardening and tempering of tool steel?',answer:'Hardening heats steel to ~900°C and quenches it in cold water — very hard but brittle. Tempering then gently reheats to a specific colour, reducing brittleness while retaining hardness.'},
+    {topic:'Composites',question:'What is a composite material?',answer:'A material made by combining two or more materials with significantly different properties. The individual materials retain their structure — they do not blend — resulting in enhanced properties.'},
+    {topic:'Composites',question:'In a composite, what is the matrix and what is the reinforcement?',answer:'The matrix is the binding material. The reinforcement provides structure and strength. In GRP: polyester resin = matrix; glass fibres = reinforcement.'},
+    {topic:'Composites',question:'What is CFRP and why is it used in aerospace?',answer:'Carbon-Fibre Reinforced Polymer — carbon fibres in polymer resin. Best strength-to-weight ratio of any construction material; rigid, lightweight and heat tolerant.'},
+    {topic:'Composites',question:'What is the key difference between a composite and an alloy?',answer:'In a composite, individual materials retain their distinct structure and properties. In an alloy, the metals blend completely at molecular level into a uniform new material.'},
+  ],
+  notes:[
+    {title:'3.1 Types of Materials & Properties',summary:'Physical and working properties determine which material is selected for a given product.',
+     paragraphs:['Designers need to know the properties of materials to select those that meet a product design specification. Materials are classified into five main groups: woods, metals, plastics, composites, and smart/modern materials.','Physical properties describe how a material behaves under specific conditions. Working properties describe how a material behaves when being worked or shaped.'],
+     keyPoints:['Mechanical — how material reacts to physical forces','Electrical — conductive or insulative properties','Chemical — reaction to other chemicals (ferrous metals rust)','Thermal — behaviour at different temperatures','Strength — withstand constant force without failing','Hardness — resist wear, scratching and dents','Toughness — withstand sudden blows','Ductility — stretch along length without snapping','Malleability — permanently change shape in all directions','Elasticity — bend and return to original shape'],
+     keyTerms:[{term:'Physical property',definition:'An observable or measurable characteristic of a material such as conductivity or magnetism.'},{term:'Working property',definition:'The way a material behaves when being worked, shaped or used in a product.'},{term:'Stiffness',definition:'Resistance to forces of bending or torsion.'}]},
+    {title:'3.2 Smart and Modern Materials',summary:'Materials engineered to react independently to environmental conditions.',
+     paragraphs:['Smart materials react independently to environmental conditions — this is why they are called "smart". Some have a memory, returning to their original shape under conditions such as heat. Modern materials can also be engineered at the nanoscale using nanoparticles such as graphene.'],
+     keyPoints:['SMA (nitinol) — returns to shape above 90°C; medical stents, spectacle frames','Thermochromic inks — colour change with temperature; thermometer strips, food packaging','Photochromic inks — colour change with light (UV); reactive sunglasses','Polymorph — mouldable at 62°C; prototyping handles and components','Lenticular sheet — optical 3D/depth effects','Biomimicry — design inspired by nature'],
+     keyTerms:[{term:'Smart material',definition:'A material whose properties alter in response to environmental conditions.'},{term:'Biomimicry',definition:'An approach to design inspired by how nature solves problems.'},{term:'Memory',definition:'The property by which a material returns to its original shape under specific conditions.'}]},
+    {title:'3.3 Plastics',summary:'Thermoforming plastics can be repeatedly reshaped; thermosetting plastics permanently harden.',
+     paragraphs:['Thermoforming plastics soften when heated and can be repeatedly reshaped — they have an elastic zone for vacuum forming and a plastic state for injection moulding. Thermosetting plastics undergo an irreversible chemical reaction — once set they cannot be softened.'],
+     keyPoints:['Nylon — abrasion resistant, low friction; gears, bearings','HDPE/LDPE — chemical resistant; bottles, packaging','Acrylic (PMMA) — hard, UV resistant, transparent; signs, canopies, baths','PVC — chemical and fire resistant; pipes, footwear','Polystyrene (PS) — common; toys, food packaging','ABS — durable, impact resistant; appliances, phone cases','Epoxy resin (thermoset) — high adhesive strength, waterproof','Melamine formaldehyde (thermoset) — hard; electrical plugs, switches','Urea formaldehyde (thermoset) — high tensile strength; buttons, toilet seats, MDF bonding','Phenol formaldehyde (thermoset) — hard, thermal stability; lab worktops, PCBs'],
+     keyTerms:[{term:'Thermoforming',definition:'Plastics that soften when heated and can be repeatedly reformed.'},{term:'Thermosetting',definition:'Plastics that permanently harden when heat causes an irreversible chemical reaction.'},{term:'Elastic state',definition:'Temperature range where a thermoforming plastic is stretchy and mouldable.'}]},
+    {title:'3.4 Wood',summary:'Classified as hardwood or softwood; manufactured boards offer consistency and large sizes.',
+     paragraphs:['Timber is wood processed for manufacture. Hardwoods come from deciduous trees; softwoods from coniferous trees. Timber must be seasoned to remove moisture before use. Manufactured boards overcome the width and consistency limitations of natural timber.','Adhesives used in timber construction vary in curing time and strength. PVA is the most common — it sets in approximately 24 hours. Synthetic resin is water-resistant and stronger. Epoxy resin is the strongest and fully waterproof.'],
+     keyPoints:['Oak — strong, tough; high-quality furniture','Beech — close-grained, hard, prone to warping; furniture, tool handles','Mahogany — rich colour, durable; quality furniture','Scots Pine (softwood) — cheap, easy to work; construction, joinery','MDF — fine wood dust + resin; no grain; smooth; seal before painting','Plywood — alternating grain veneers; strong; marine, laser grades available','Chipboard — wood chips + resin; cheap; flat-pack furniture','PVA — 24 hours cure, moderate strength, not waterproof','Synthetic resin — mix with water, water-resistant, stronger than PVA','Epoxy resin — fast or standard cure, very strong, waterproof','FSC = sustainably sourced timber'],
+     keyTerms:[{term:'Hardwood',definition:'Wood from deciduous broad-leaved trees that shed leaves in autumn.'},{term:'Softwood',definition:'Wood from coniferous evergreen trees with cones and needles.'},{term:'Seasoning',definition:'Drying out timber so it becomes stable and will not change shape over time.'},{term:'Curing time',definition:'The time needed for an adhesive to fully set and reach maximum strength.'}]},
+    {title:'3.5 Composites',summary:'Materials combining two or more substances to achieve enhanced properties.',
+     paragraphs:['In a composite, individual materials retain their structure — they do not blend. Most composites have a matrix (binder) and reinforcement (structural strength). The result is typically stronger, lighter and more efficient than either material alone.'],
+     keyPoints:['GRP (fibreglass) — glass fibres + polyester resin; boat hulls, car bodies, water tanks','CFRP — carbon fibres + polymer resin; best strength-to-weight ratio; aerospace, F1, prosthetics','Kevlar® — aramid fibres + resin; 20× strength of steel; bullet-proof vests, PPE','Alloys are NOT composites — metals blend completely at molecular level','Steel-reinforced concrete — steel rods (reinforcement) + concrete (matrix)'],
+     keyTerms:[{term:'Composite',definition:'A material made from two or more materials that retain their individual structure when combined.'},{term:'Matrix',definition:'The binding material in a composite.'},{term:'Reinforcement',definition:'The material in a composite that provides structure and adds strength.'}]},
+    {title:'3.6 Metals',summary:'Classified as ferrous or non-ferrous; properties can be altered through heat treatment.',
+     paragraphs:['Ferrous metals contain iron and rust; non-ferrous do not. Pure metals are often alloyed to achieve specific properties. Metal properties can be changed through heat treatment — annealing softens, hardening makes harder, tempering reduces brittleness.'],
+     keyPoints:['Cast iron (1200°C) — brittle; manhole covers, brake discs','Stainless steel (1400°C) — corrosion resistant; cutlery, surgical instruments','Mild steel (1600°C) — tough, ductile, malleable; engineering, car panels, nuts/bolts','High carbon steel (1800°C) — hard, tough; cutting tools, hammers, chisels','Aluminium (660°C) — lightweight, corrosion resistant; aircraft, bikes, window frames','Copper (1080°C) — ductile, excellent conductor; plumbing, electrical','Brass (925°C, Cu+Zn) — decorative, machinable; fittings, instruments','Annealing softens metal; work hardening makes it harder and more brittle','Tempering colours: pale yellow (230°C, scriber) → blue (300°C, screwdrivers)'],
+     keyTerms:[{term:'Ferrous',definition:'A metal containing iron — will rust unless protected.'},{term:'Non-ferrous',definition:'A metal that does not contain iron — will not rust.'},{term:'Alloy',definition:'A mixture of two or more metals combined to improve or alter properties.'},{term:'Annealing',definition:'Heating a metal to a specific temperature and cooling it to soften it and restore workability.'}]},
+  ],
+  mcqs:[
+    {question:'Which of the following is a WORKING property of a material?',options:['Thermal conductivity','Magnetic attraction','Ductility','Permeability'],correct:2,explanation:'Ductility — the ability to stretch along its length without snapping — is a working property. The others are physical properties.'},
+    {question:'A Shape Memory Alloy returns to its original shape when:',options:['Placed in cold water','Heated above 90°C','Bent repeatedly','Exposed to UV light'],correct:1,explanation:'SMAs (nitinol) return to their memorised shape when heated above 90°C — ideal for medical stents that expand using body heat.'},
+    {question:'Which plastic CANNOT be reshaped after being set by heat?',options:['Acrylic (PMMA)','Polypropylene (PP)','Epoxy resin','PVC'],correct:2,explanation:'Epoxy resin is thermosetting — heat causes an irreversible chemical reaction. Acrylic, PP and PVC are thermoforming plastics.'},
+    {question:'"Hardwood" and "softwood" refer to:',options:['The actual hardness of the wood','Whether the tree produces fruit','The type of tree — deciduous or coniferous','Whether the timber has been seasoned'],correct:2,explanation:'Hardwoods come from deciduous trees; softwoods from coniferous trees. Balsa is a hardwood yet is very soft.'},
+    {question:'Mild steel is ferrous. This means it:',options:['Does not contain iron and will not rust','Contains iron and will rust unless protected','Is always harder than non-ferrous metals','Has a very low melting point'],correct:1,explanation:'Ferrous metals contain iron and react with oxygen and water to produce rust. Mild steel must be protected to prevent corrosion.'},
+    {question:'In GRP, what acts as the reinforcement?',options:['Polyester resin','Glass fibres','Carbon fibres','Epoxy resin'],correct:1,explanation:'The glass fibres are the reinforcement and polyester resin is the matrix — together they produce a lightweight yet strong material.'},
+    {question:'What is the purpose of annealing a metal?',options:['To harden the surface','To coat it with zinc','To soften it after work hardening so it can be worked again','To permanently change its chemical composition'],correct:2,explanation:'Annealing heats a metal to a specific temperature and cools it, relieving stresses from work hardening and restoring malleability.'},
+    {question:'Which thermosetting plastic is used for laboratory worktops and printed circuit boards?',options:['Urea formaldehyde','Melamine formaldehyde','Phenol formaldehyde','Epoxy resin'],correct:2,explanation:'Phenol formaldehyde (PF) has high hardness, thermal stability and chemical resistance — ideal for lab worktops, billiard balls and PCBs.'},
+    {question:'Which adhesive is water-resistant, must be mixed before use, and is stronger than PVA?',options:['Contact adhesive','Acrylic cement','Synthetic resin','PVA'],correct:2,explanation:'Synthetic resin adhesive is water-resistant and stronger than PVA, but must be mixed with water before application.'},
+    {question:'What is the key difference between a composite and an alloy?',options:['Composites are always stronger','In a composite materials retain their structure; in an alloy metals blend completely','Alloys always contain carbon','Composites can only be made from plastics'],correct:1,explanation:'In a composite, individual materials keep their distinct properties. In an alloy, metals blend at molecular level into a uniform material.'},
+  ]
+},
+
+/* ─────────────────── 3. MANUFACTURING ─────────────────── */
+{
+  id:'manufacturing', icon:'⚙️', title:'Manufacturing',
+  subtitle:'Units 3.7–3.11: Preparation, marking out, shaping, joining & finishes',
+  flashcards:[
+    {topic:'Market Forms & Preparation',question:'What is market form?',answer:'Standard manufactured shapes and sizes of material available commercially (e.g. round bar, sheet, PAR timber). Using market forms saves time, reduces waste and lowers cost.'},
+    {topic:'Market Forms & Preparation',question:'What is a datum surface and why is it important?',answer:'A flat face or straight edge from which all measurements are taken. Without a true datum, dimensions and joints will be inaccurate regardless of how carefully you measure.'},
+    {topic:'Market Forms & Preparation',question:'How is a datum created on timber vs metal?',answer:'On timber — a wood plane creates a flat datum surface. On metal or plastic — a flat hand file is used. A surface plate with scribing block creates accurate datum lines on metal.'},
+    {topic:'Measuring & Marking Out',question:'What is marking out?',answer:'The process of transferring measurements in the form of lines or shapes onto material prior to cutting, shaping, bending or forming.'},
+    {topic:'Measuring & Marking Out',question:'What tool is used to mark a parallel line on timber? On metal?',answer:'On timber — a marking gauge. On metal and plastic — odd-leg calipers.'},
+    {topic:'Measuring & Marking Out',question:'What tool is used to check a 90° angle on timber? On metal?',answer:'On timber — a try square. On metal — an engineer\'s square.'},
+    {topic:'Measuring & Marking Out',question:'What is a sliding bevel and what is it used for?',answer:'A marking and testing tool with an adjustable blade that locks at any angle. Used to mark or check angles other than 90° or 45° — e.g. dovetail joint angles or chamfered edges.'},
+    {topic:'Measuring & Marking Out',question:'What is a micrometer used for?',answer:'A precision instrument used to measure depth, length or thickness to fractions of a millimetre — far more precisely than a steel rule.'},
+    {topic:'Measuring & Marking Out',question:'Why should measurements always be taken from the datum line?',answer:'To avoid cumulative error — taking each measurement from the previous mark causes errors to add up, making components inaccurate and poorly fitting.'},
+    {topic:'Cutting Tools',question:'What is the difference between a tenon saw and a coping saw?',answer:'A tenon saw cuts straight lines in wood with precision (mortise and tenon joints). A coping saw has a thin blade on a C-frame and is used to cut curved lines in wood and plastics.'},
+    {topic:'Cutting Tools',question:'What cutting tool is used for straight cuts in metal? For curves in metal?',answer:'Straight cuts in metal — hacksaw or junior hacksaw. Curves in metal — piercing saw. Sheet metal straight cuts — hacksaw or guillotine.'},
+    {topic:'Cutting Tools',question:'What are hand snips (tin snips) used for?',answer:'Scissor-like hand tools for cutting thin sheet metal. Straight snips cut straight lines; curved/aviation snips cut curves and irregular shapes.'},
+    {topic:'Cutting Tools',question:'What is a scoring tool used for in plastics?',answer:'A tool with a hardened point used to score a straight line across plastic sheet. The sheet is then snapped along the scored line — used for straight cuts in acrylic and similar plastics.'},
+    {topic:'Cutting Tools',question:'What is a spokeshave used for?',answer:'A hand tool used to shape and smooth curved edges on wood. The blade removes thin shavings and it is used for curved chair legs, tool handles and organic shapes.'},
+    {topic:'Cutting Tools',question:'What is a gouge used for?',answer:'A chisel with a curved blade used to hollow out and shape wood — for example in wood turning and carving, creating concave surfaces and decorative shapes.'},
+    {topic:'Cutting Tools',question:'What is a cold chisel used for in metalwork?',answer:'A hardened steel chisel used without a wooden handle to cut, chip or split metal — for example cutting off bolt heads or removing material from castings. Used with a hammer.'},
+    {topic:'Cutting Tools',question:'What is a wheel brace and bit used for?',answer:'A hand tool for drilling holes in wood before the advent of electric drills. The wheel brace (hand drill) turns a twist bit using a rotating handle — still used where power tools are unavailable.'},
+    {topic:'Machine Tools',question:'What is a wood turning lathe used for and how does it differ from a centre lathe?',answer:'A wood turning lathe rotates wood while the operator shapes it with hand-held chisels and gouges. A centre lathe uses fixed mechanically fed cutting tools and is designed for shaping metal.'},
+    {topic:'Machine Tools',question:'What is an off-hand grinder used for?',answer:'A bench-mounted machine with abrasive grinding wheels used to shape, sharpen and finish metal — for example sharpening chisels, grinding tool steel and removing metal burrs.'},
+    {topic:'Machine Tools',question:'What is a disk/belt sander used for?',answer:'A machine tool using abrasive discs or belts to shape edges and smooth surfaces of wood and plastics. Belt sanders are also used to smooth metal surfaces.'},
+    {topic:'Machine Tools',question:'What is a planer thicknesser used for?',answer:'A machine that planes timber to a precise, consistent thickness and smooths its surface. It produces a flat, smooth face and ensures uniform thickness across the whole length of a board.'},
+    {topic:'Machine Tools',question:'What is an abrasive mop used for?',answer:'A rotating fabric wheel impregnated with abrasive compound, fitted to a polishing machine. Used to smooth and polish surfaces of metals and plastics to a high-quality finish.'},
+    {topic:'Taps & Dies',question:'What is a tap and what is it used for?',answer:'A hardened steel tool that cuts an internal screw thread inside a drilled pilot hole — so a machine screw can be fastened directly into the material without needing a nut.'},
+    {topic:'Taps & Dies',question:'What is a die and what is it used for?',answer:'A hardened steel tool that cuts an external screw thread on the outside of a round metal rod — creating a threaded rod or stud. Used with a die stock (handle).'},
+    {topic:'Shaping',question:'What are the four principles of shaping materials?',answer:'Wastage (cutting away material), Addition (joining/combining materials), Deforming (changing shape without removing material), and Reforming (melting and pouring/injecting into a mould).'},
+    {topic:'Joining',question:'What is the difference between permanent and temporary joining?',answer:'Temporary joining uses screws, nuts and bolts or KD fittings that can be undone. Permanent joining (welding, brazing, riveting, adhesives) creates bonds not designed to be reversed.'},
+    {topic:'Joining',question:'How does brazing differ from welding?',answer:'In brazing, a filler metal (usually brass) with a lower melting point is melted between the pieces — the base metals do not melt. In welding, the base metals themselves are melted and fused together.'},
+    {topic:'Joining',question:'What is a housing joint and where is it used?',answer:'A joint where a shelf or panel slots into a channel (housing) cut across the grain of a side piece. Used in carcase furniture such as bookcases and cabinets.'},
+    {topic:'Joining',question:'What is a bridle joint?',answer:'A joint where a tenon fits into an open-ended mortise slot. Used at corners of frames and in table and chair construction.'},
+    {topic:'Joining',question:'What is carcase construction?',answer:'A box-like method of building furniture (cabinets, bookcases, drawers) using panels joined at corners, with a back panel added for rigidity to prevent racking.'},
+    {topic:'Joining',question:'What is a pop rivet and what is its main advantage?',answer:'A two-piece rivet applied using a rivet gun. Its main advantage is that the process is completed from one side only — useful where the back of the material is inaccessible.'},
+    {topic:'Joining',question:'Name three types of wood corner joint.',answer:'Mortise and tenon, dovetail joint, comb/finger joint, butt joint, mitre joint, lap joint, housing joint, bridle joint — any three.'},
+    {topic:'Joining',question:'What adhesive is used to join acrylic plastic?',answer:'Acrylic cement — it melts the surfaces of the plastic parts being joined so they fuse together, creating a very strong bond.'},
+    {topic:'Finishes',question:'Give the two main reasons why a finish is applied to a product.',answer:'Protection — to prevent corrosion, moisture damage, heat damage, rust or mould. Aesthetics — to enhance the visual appearance and appeal of the material or product.'},
+    {topic:'Finishes',question:'What is galvanising and what material is it applied to?',answer:'A process that coats iron or steel with zinc via a chemical process. The zinc provides a rust and corrosion-resistant finish. Used on hinges, nails, screws, nuts, bolts and car bodies.'},
+    {topic:'Finishes',question:'What is anodising?',answer:'An electrolytic process using acid and electrical current that builds a protective oxide layer on aluminium. It increases corrosion resistance and allows colour to be added.'},
+    {topic:'Finishes',question:'What is lacquer and what is it used for?',answer:'A clear or coloured fast-drying finish applied by brush or spray to wood and metal. It dries to a hard, protective glossy coating. Used on furniture, musical instruments and metal components.'},
+    {topic:'Finishes',question:'What is the difference between interior and exterior finishes?',answer:'Interior finishes (wax polish, French polish, cellulose sealant) are for indoor use only — not weather resistant. Exterior finishes (exterior wood stain, varnish, exterior paint, oil) resist moisture, UV light and temperature changes outdoors.'},
+  ],
+  notes:[
+    {title:'3.7 Preparation of Materials',summary:'Market forms, cutting methods and datum surfaces are the foundation of accurate making.',
+     paragraphs:['Market form describes standard manufactured shapes and sizes of material. Using market forms reduces waste, saves time and lowers cost. Common forms include round bar, flat strip, sheet, angle, channel, PAR timber, board and plank.','Before cutting, a datum must be established — a flat face or straight edge from which all measurements are taken. Materials must always be securely clamped using vices, cramps or jigs before cutting.'],
+     keyPoints:['Hacksaw — all metals, straight cuts','Guillotine — sheet metal, straight cuts','Tenon saw — wood, precision cuts and joints','Cross-cut saw — wood, cuts across grain','Panel saw — heavy duty, all wood types and plastics','Portable circular saw — straight cuts in timber','Jigsaw — curved and intricate cuts','Hand snips (tin snips) — cut thin sheet metal; straight or aviation type','Datum on timber — create with wood plane; check with steel rule','Datum on metal — create with flat file; check with surface plate + scribing block','Two datums at 90° = face side and face edge on timber'],
+     keyTerms:[{term:'Market form',definition:'Standard forms and sizes of commercially manufactured material.'},{term:'Datum',definition:'A flat face or straight edge used as a reference point from which all measurements are taken.'},{term:'PAR (Planed All Round)',definition:'Timber with planed edges; actual size is smaller than stated due to planing.'}]},
+    {title:'3.8 Setting, Measuring, Marking Out and Testing',summary:'Accurate measurement and correct tools are essential — even small errors lead to parts that do not fit.',
+     paragraphs:['Setting and marking out describe the first stages of manufacture where measurements are transferred onto material. The correct tools depend on the material and type of mark needed. All measurements should be taken from the datum to avoid cumulative error.'],
+     keyPoints:['Sharp straight line: timber = pencil/marking knife; plastic = marker pen; metal = scriber','Parallel line: timber = marking gauge; plastic/metal = odd-leg calipers','Perpendicular/90°: timber/plastic = try square; metal = engineer\'s square','45° angle: all materials = mitre square or combination square','Any angle: all materials = sliding bevel','Centre of hole: timber = pencil + centre punch; metal = dot/centre punch','Centre of round material: all = centre square','Curves/arcs: timber = compasses; plastic/metal = dividers','Mortise and tenon: timber = mortise gauge','Micrometer — measures to fractions of a mm','Digital vernier caliper — measures internal/external distances precisely'],
+     keyTerms:[{term:'Marking out',definition:'Transferring measurements as lines or shapes onto material in advance of cutting or shaping.'},{term:'Sliding bevel',definition:'An adjustable marking tool that can be set and locked at any angle.'},{term:'Scriber',definition:'A hardened steel point used to make thin precise lines on metal surfaces.'}]},
+    {title:'3.9 Shaping — Tools and Processes',summary:'Hand tools, machine tools and CAM processes for cutting, shaping and forming resistant materials.',
+     paragraphs:['Wastage involves cutting away material using hand tools (saws, chisels, files) or machine tools (lathe, milling machine, bandsaw). Addition joins materials together. Deforming uses heat to change shape without removing material. Reforming melts and pours into a mould.','Taps and dies are used for screw cutting by hand. A tap cuts an internal thread in a drilled hole; a die cuts an external thread on a rod. Both are used in metalwork.'],
+     keyPoints:['Hand tools — tenon saw (wood straight), coping saw (wood/plastic curves), hacksaw (metal straight), piercing saw (metal curves), scoring tool (plastic straight)','Hand tools — planes/spokeshaves/rasps (wood edges), files (metal/plastic edges), chisels/gouges (wood hollowing), cold chisel (metal), hand router (wood hollowing)','Hand tools — wheel brace and bit (wood drilling), hand drill and twist bit (metal/plastic drilling)','Machine tools — circular saw (straight, wood/plastic), bandsaw (curves, all materials), pillar drill (holes, all materials)','Machine tools — wood turning lathe (hand-held tools on rotating wood), centre lathe (fixed tools, metal), off-hand grinder (metal finishing)','Machine tools — router (wood hollowing/edges), milling machine (metal/plastic hollowing), belt/disk sander (edges/smoothing), planer thicknesser (wood smoothing), polishing machine/abrasive mop (metal/plastic polishing)','Taps — cut internal thread in drilled hole; taper tap first, then second tap','Dies — cut external thread on rod; used with die stock','Drill types: through hole, blind hole, countersink, counterbore, pilot hole, clearance hole'],
+     keyTerms:[{term:'Wastage',definition:'Shaping by cutting away material using saws, files and abrasives.'},{term:'Addition',definition:'Shaping by combining or joining materials.'},{term:'Deforming',definition:'Changing the shape of a material using heat without removing or adding material.'},{term:'Reforming',definition:'Changing shape by melting and pouring or injecting into a mould.'},{term:'Tap',definition:'A hardened steel tool for cutting internal screw threads.'},{term:'Die',definition:'A hardened steel tool for cutting external screw threads.'}]},
+    {title:'3.10 Joining and Assembly',summary:'Temporary and permanent joining; carcase, frame and stool construction.',
+     paragraphs:['Temporary joining uses threaded components — screws, nuts and bolts, KD fittings. Permanent joining processes — welding, brazing, soldering, riveting, nailing and adhesive bonding — are not designed to be reversed.','Carcase construction creates box-like furniture (cabinets, bookcases) using corner joints and a back panel to prevent racking. Frame construction uses mortise and tenon or bridle joints. Stool/chair construction requires very secure seat-to-leg joints as these experience the greatest stress.'],
+     keyPoints:['Brazing — filler metal (brass) melted between pieces; base metals must have higher melting point','Soldering — soft solder ~200°C; joins copper, brass, tinplate, electronic components','Welding — base metals melted and fused; electric-arc or oxy-acetylene; requires PPE','Riveting — permanent; pop rivet applied from one side only','Wood corner joints: mortise & tenon, dovetail, comb/finger, butt, mitre, lap, housing, bridle','KD fittings: corner block, cam lock, scan fitting — flat-pack manufactured boards','PVA — timber; 24 hours cure; not waterproof','Epoxy resin — metals/plastics; very strong; waterproof','Acrylic cement — joins acrylic by fusing surfaces','Housing joint — shelf slots into channel cut across grain; carcase furniture','Bridle joint — tenon into open mortise; frame construction','Carcase — box furniture; back panel prevents racking','Stool/chair — seat-to-leg joints under greatest stress; mortise and tenon for square legs'],
+     keyTerms:[{term:'Temporary joining',definition:'A join designed to be easily taken apart — screws, nuts, bolts or KD fittings.'},{term:'Permanent joining',definition:'A join not intended to be separated — welding, riveting, adhesive bonding.'},{term:'Housing joint',definition:'A shelf or panel slots into a channel cut across the grain of a side piece.'},{term:'Bridle joint',definition:'A tenon fits into an open-ended mortise; used in frame construction.'},{term:'Carcase',definition:'Box-like furniture construction with a back panel to prevent racking.'}]},
+    {title:'3.11 Finishes',summary:'Finishes protect materials and enhance appearance; choice depends on material and use.',
+     paragraphs:['A finish is applied for two reasons: protection (from corrosion, moisture, heat, rust or mould) and aesthetics. The correct finish must match the material type and function — interior or exterior, protective or decorative. Before applying any finish, the surface must be clean, dry and free from grease, rust or dust.'],
+     keyPoints:['Wood interior: wax polish (grain appeal), French polish (high gloss, hardwoods), varnish (weather protection), wood stain (colour/grain), oil (penetrates wood, lasting), cellulose sealant (seals porous surfaces), paint (protective + visual)','Wood exterior: exterior wood stain, exterior paint, varnish, oil — all resist moisture, UV and temperature','Metal: galvanising (zinc coating, rust-proof), anodising (electrolytic, aluminium, adds colour), electroplating (chromium, polished), powder coating (hard electrostatic coating), plastic dip coating (grip/ergonomics), lacquer (hard glossy coating), paint, oil/grease','Plastic: buffing/polishing compound (removes sharp edges, adds shine)','Self-finishing materials — Gortex® (water-resistant), Nomex® (heat-resistant); no additional treatment needed','Preparation is essential — clean, dry, free from grease before applying any finish'],
+     keyTerms:[{term:'Galvanising',definition:'Coating iron or steel with zinc to provide rust and corrosion resistance.'},{term:'Anodising',definition:'An electrolytic process building a protective oxide layer on aluminium; allows colour to be added.'},{term:'Lacquer',definition:'A fast-drying clear or coloured protective finish applied by brush or spray to wood or metal.'},{term:'Interior finish',definition:'A finish for indoor use only — not weather resistant.'},{term:'Exterior finish',definition:'A finish formulated to withstand outdoor moisture, UV and temperature changes.'}]},
+  ],
+  mcqs:[
+    {question:'What is the purpose of a datum surface?',options:['To provide a decorative edge','To act as a reference point from which all measurements are taken','To smooth the material before finishing','To hold the material during machining'],correct:1,explanation:'A datum is a flat face or straight edge from which all measurements are taken. Without a true datum all subsequent measurements will be inaccurate.'},
+    {question:'Which tool is used to mark a parallel line on a piece of metal?',options:['Marking gauge','Try square','Odd-leg calipers','Mortise gauge'],correct:2,explanation:'Odd-leg calipers scribe a parallel line on metal and plastic. A marking gauge is used on timber.'},
+    {question:'What tool would you use to mark out an angle of 60° on timber?',options:['Try square','Mitre square','Sliding bevel','Combination square'],correct:2,explanation:'A sliding bevel has an adjustable blade that locks at any angle — correct for marking or checking angles other than fixed 90° or 45°.'},
+    {question:'What are hand snips (tin snips) used for?',options:['Cutting curves in wood','Cutting thin sheet metal by hand','Cutting plastic pipe','Trimming timber to length'],correct:1,explanation:'Hand snips are scissor-like tools designed for cutting thin sheet metal. Straight snips cut straight lines; aviation snips cut curves.'},
+    {question:'What is a tap used for in metalwork?',options:['To drill a pilot hole','To cut an external thread on a metal rod','To cut an internal thread inside a drilled hole','To countersink a hole'],correct:2,explanation:'A tap cuts an internal screw thread inside a drilled pilot hole, allowing a machine screw to be driven directly into the material without a nut.'},
+    {question:'What is the key difference between a wood turning lathe and a centre lathe?',options:['Speed only','A wood lathe uses hand-held tools on rotating wood; a centre lathe uses fixed tools for metal','A centre lathe is for wood; a wood lathe is for metal','They are identical machines'],correct:1,explanation:'A wood turning lathe uses hand-held chisels applied to rotating wood. A centre lathe uses fixed, mechanically fed cutting tools designed for metal.'},
+    {question:'A housing joint is used primarily for:',options:['Joining two metal plates','Supporting a shelf by slotting it into a channel cut across the grain','Forming a curved shape in wood','Joining plastic components with solvent cement'],correct:1,explanation:'A housing joint cuts a channel across the grain of a side panel into which a shelf or partition slots — widely used in carcase furniture like bookcases.'},
+    {question:'Which of the following is an EXTERIOR finish for a garden bench?',options:['French polish','Wax polish','Exterior wood stain','Cellulose sealant'],correct:2,explanation:'Exterior wood stain resists moisture, UV and temperature changes. French polish, wax polish and cellulose sealant are interior finishes only.'},
+    {question:'What is galvanising?',options:['Applying paint using an electrostatic spray gun','Coating iron or steel with zinc to protect against rust','Building a protective oxide layer on aluminium','Dipping a metal object into thermoplastic coating'],correct:1,explanation:'Galvanising coats iron or steel with zinc via a chemical process — zinc provides excellent corrosion resistance. Used on nails, bolts, car bodies and hinges.'},
+    {question:'What is a bridle joint?',options:['A joint using a shelf slotted into a groove','A joint where a tenon fits into an open-ended mortise — used in frame construction','A KD fitting for flat-pack furniture','A method of joining sheet metal'],correct:1,explanation:'A bridle joint has a tenon fitting into an open-ended mortise slot. Used in frame construction at corners of tables and chairs.'},
+    {question:'Why must measurements always be taken from the datum?',options:['It is quicker','Measuring from the previous mark causes cumulative error making parts inaccurate','The datum gives a larger measurement','It is a health and safety requirement'],correct:1,explanation:'Taking cumulative measurements allows errors to stack up. Each small inaccuracy adds to the next. Always measuring from the datum keeps measurements independent and accurate.'},
+    {question:'What is lacquer used for?',options:['Joining two pieces of acrylic','Providing a hard protective glossy coating on wood or metal by brush or spray','Preventing wood from absorbing moisture by penetrating the grain','Powder-coating metal using an electrostatic process'],correct:1,explanation:'Lacquer is a fast-drying finish applied by brush or spray that dries to a hard, protective glossy coating on wood and metal — used on furniture, instruments and metal components.'},
+  ]
+},
+
+/* ─────────────────── 4. SUSTAINABILITY ─────────────────── */
+{
+  id:'sustainability', icon:'🌱', title:'Sustainability',
+  subtitle:'Unit 1.9: Energy sources, the Six R\'s, recycling & planned obsolescence',
+  flashcards:[
+    {topic:'Energy Sources',question:'What are the three main fossil fuels?',answer:'Coal, oil and natural gas. They are formed from organisms that died millions of years ago, compressed over time under heat and pressure into carbon-rich deposits.'},
+    {topic:'Energy Sources',question:'Why are fossil fuels described as finite?',answer:'They take millions of years to form and can only be extracted once — in time they will run out. They cannot be replenished at the rate we use them.'},
+    {topic:'Energy Sources',question:'What is solar photovoltaic energy?',answer:'The sun\'s rays are converted directly into electricity using solar panels.'},
+    {topic:'Energy Sources',question:'What is solar thermal energy?',answer:'The sun\'s heat is used to heat water for domestic uses such as showers and washing — distinct from generating electricity.'},
+    {topic:'Energy Sources',question:'How does hydroelectricity generate power?',answer:'Water from a reservoir flows downriver through turbines which spin and generate electricity.'},
+    {topic:'Energy Sources',question:'What is geothermal energy?',answer:'Cold water is pumped deep into the ground where it is heated naturally, then returns to the surface hot and is used for heating.'},
+    {topic:'Energy Sources',question:'What is tidal energy?',answer:'The power of the daily tide in a river estuary drives turbines which generate electricity.'},
+    {topic:'Energy Sources',question:'What is biomass energy?',answer:'When living organisms such as plants die, the gases produced are collected and burnt to generate electricity.'},
+    {topic:'Energy Sources',question:'What is nuclear energy and what is its main disadvantage?',answer:'Energy released from nuclear reactions. Considered relatively clean compared to fossil fuels but controversial due to long-term dangers of radioactive waste and very expensive to set up.'},
+    {topic:'Energy Sources',question:'What is the difference between finite and infinite energy sources?',answer:'Finite sources (fossil fuels) will eventually run out as they cannot be replaced. Infinite/renewable sources (solar, wind, hydro) are continuously replenished naturally by the Earth.'},
+    {topic:'Six R\'s',question:'What are the Six R\'s?',answer:'Reduce, Reuse, Recycle, Rethink, Repair, Refuse.'},
+    {topic:'Six R\'s',question:'What does Reduce mean in the Six R\'s?',answer:'Reduce your use of electricity, quantities of products purchased and materials consumed.'},
+    {topic:'Six R\'s',question:'What does Reuse mean?',answer:'Using packaging, materials and items a second time rather than throwing them away — also known as upcycling.'},
+    {topic:'Six R\'s',question:'What does Repair mean in the Six R\'s?',answer:'Fix items rather than throwing them away and buying new ones. Designers should create products that are easy to repair.'},
+    {topic:'Six R\'s',question:'What does Refuse mean in the Six R\'s?',answer:'Refuse to buy a product if you do not need it — challenging unnecessary consumption.'},
+    {topic:'Recycling',question:'Why are composite materials difficult to recycle?',answer:'Because they are made from two or more materials joined together — separating them back into their original components is very difficult or impossible. Examples: concrete, drinks cartons, MDF, PCBs.'},
+    {topic:'Recycling',question:'Which type of plastic can be recycled — thermoforming or thermosetting?',answer:'Thermoforming (thermoplastic) plastics can be recycled. Thermosetting plastics cannot — their chemical change is irreversible.'},
+    {topic:'Recycling',question:'What do the numbers inside plastic recycling triangles indicate?',answer:'The type of plastic (e.g. 1=PET, 2=HDPE, 3=PVC, 5=PP, 6=PS) so they can be sorted and grouped correctly for recycling.'},
+    {topic:'Recycling',question:'Why are batteries in mobile devices an environmental concern?',answer:'They contain poisonous chemicals that can leak into water supplies when thrown away in landfill. They must be recycled through specialist WEEE schemes.'},
+    {topic:'Disassembly',question:'What is designing for disassembly?',answer:'Designing products so they can be taken apart using common tools, making it easier to repair, replace parts or recycle components — extending product life and reducing waste.'},
+    {topic:'Planned Obsolescence',question:'What is planned obsolescence?',answer:'The intentional design of products with a limited lifespan so they become obsolete after a certain period, encouraging customers to buy new replacements.'},
+    {topic:'Planned Obsolescence',question:'Give two forms that planned obsolescence can take.',answer:'Software upgrades making older devices incompatible, material or component failure after warranty expires, compatibility issues, or assembly that makes repair uneconomical.'},
+    {topic:'Planned Obsolescence',question:'Give one positive example of planned obsolescence.',answer:'Food sell-by dates — products are designed to be used within a limited time period for consumer safety. Also PLA bioplastics which are designed to biodegrade quickly.'},
+  ],
+  notes:[
+    {title:'Forms of Energy — Conventional and Renewable',summary:'Energy sources are either conventional (finite) or renewable (infinite).',
+     paragraphs:['The world relies heavily on energy to drive economies. The main sources in most countries are fossil fuels — coal, oil and natural gas — formed from ancient organisms over millions of years. Nuclear energy is also used in many developed nations. All conventional sources have significant drawbacks: fossil fuels produce greenhouse gases, nuclear produces dangerous radioactive waste.','Renewable energy sources are considered infinite — produced naturally and continuously by the Earth. They include solar, wind, hydroelectric, geothermal, wave, tidal and biomass. Their use is growing as fossil fuel supplies deplete.'],
+     keyPoints:['Coal — common, labour intensive, used in power stations','Oil — deep underground; used for petrol, diesel and plastics','Gas — explosive; used near extraction or liquefied for transport','Nuclear — clean but expensive and produces dangerous radioactive waste','Solar PV — sun\'s rays → electricity','Solar thermal — sun\'s heat → hot water','Wind — turbines → electricity','Hydro — reservoir water → turbines → electricity','Geothermal — cold water pumped deep → heated → returned hot','Tidal — estuary tides → turbines','Wave — ocean movement → electricity','Biomass — dead organisms → gas → burnt → electricity'],
+     keyTerms:[{term:'Finite',definition:'A resource that will eventually run out and cannot be replaced.'},{term:'Renewable/Infinite',definition:'A resource continuously replenished naturally by the Earth.'},{term:'Fossil fuel',definition:'Carbon-rich fuel formed from ancient organisms compressed over millions of years.'}]},
+    {title:'The Six R\'s and Energy Efficiency',summary:'Designers and consumers can reduce environmental impact through the Six R\'s.',
+     paragraphs:['A simple way to make fossil fuels last longer is to manage energy more efficiently — switching off lights, keeping heat indoors, choosing to walk or cycle. Designers must consider energy at every stage: extraction, manufacture, delivery and disposal.','The Six R\'s framework guides designers and consumers toward more sustainable behaviour. The original three R\'s (Reduce, Reuse, Recycle) have been extended to six by adding Rethink, Repair and Refuse.'],
+     keyPoints:['Reduce — use less energy, buy fewer products','Reuse — use again, upcycle','Recycle — process for use in other applications','Rethink — change the way you work and think','Repair — fix rather than replace','Refuse — do not buy what you do not need','Designers must consider energy at materials, manufacturing, delivery and disposal stages','Trevor Baylis — clockwork radio (no batteries needed)','One Laptop Per Child — wind-up power (no charging needed)'],
+     keyTerms:[{term:'Upcycling',definition:'Reusing materials or products in a way that creates something of higher value.'},{term:'Six R\'s',definition:'Reduce, Reuse, Recycle, Rethink, Repair, Refuse.'}]},
+    {title:'Recycling, Disassembly and Planned Obsolescence',summary:'Recycling reduces need for raw materials; disassembly extends product life; planned obsolescence raises ethical concerns.',
+     paragraphs:['Thermoforming plastics can be recycled and are identified by numbered triangle symbols. Composite materials are very difficult to recycle because their component materials cannot easily be separated. Designing for disassembly means creating products that can be taken apart with common tools so parts can be replaced, repaired or recycled.','Planned obsolescence is the deliberate design of products with a limited lifespan. While often considered unethical, it can be positive — food sell-by dates prevent health hazards, and PLA bioplastics are designed to biodegrade quickly.'],
+     keyPoints:['Thermoforming plastics — recyclable, identified by numbered triangle','Thermosetting plastics — cannot be recycled','Composites — very difficult to recycle (concrete, MDF, drinks cartons, PCBs)','Batteries — dangerous chemicals; must be recycled through WEEE schemes','Bioplastics (PLA) — biodegrade naturally','Designing for disassembly — use common tools; replace/repair/recycle parts; extends product life','Planned obsolescence — intentional limited lifespan design','Forms: software upgrades, component failure, compatibility issues, expensive repairs','Positive examples: food sell-by dates (safety), PLA plastics (biodegrade quickly)'],
+     keyTerms:[{term:'Disassembly',definition:'Designing a product so it can be taken apart for repair, maintenance or recycling.'},{term:'Planned obsolescence',definition:'The intentional design of a product with a limited useful lifespan to encourage repeat purchasing.'},{term:'WEEE',definition:'Waste Electrical and Electronic Equipment — recycling scheme for electronic products and batteries.'},{term:'Bioplastic',definition:'A plastic made from biological materials that biodegrades naturally.'}]},
+  ],
+  mcqs:[
+    {question:'What makes fossil fuels "finite"?',options:['They are found underground','They take millions of years to form and cannot be replaced','They produce greenhouse gases','They are used in power stations'],correct:1,explanation:'Fossil fuels take millions of years to form and can only be extracted once — they will eventually run out and cannot be replenished at the rate we use them.'},
+    {question:'Which of the following is a RENEWABLE energy source?',options:['Coal','Natural gas','Nuclear','Geothermal'],correct:3,explanation:'Geothermal energy uses natural heat from deep underground — it is continuously replenished by the Earth. Coal, gas and nuclear are conventional/finite sources.'},
+    {question:'How does hydroelectricity generate power?',options:['Burning water to create steam','Water flowing through turbines from a reservoir','Pumping cold water deep underground','Converting sunlight directly to electricity'],correct:1,explanation:'Water from a reservoir flows downriver through turbines which spin and generate electricity — a renewable energy source.'},
+    {question:'What are the THREE most recently added R\'s to Reduce, Reuse, Recycle?',options:['Rethink, Repair, Refuse','Rethink, Replace, Reduce','Repair, Replace, Reuse','Refuse, Replace, Recycle'],correct:0,explanation:'The original three R\'s were Reduce, Reuse and Recycle. The three recently added are Rethink, Repair and Refuse.'},
+    {question:'Which type of plastic CAN be recycled?',options:['Thermosetting','Epoxy resin','Thermoforming','Melamine formaldehyde'],correct:2,explanation:'Thermoforming (thermoplastic) plastics can be remelted and recycled. Thermosetting plastics undergo an irreversible chemical reaction and cannot be recycled.'},
+    {question:'Why are composite materials difficult to recycle?',options:['They are too expensive','Their component materials cannot easily be separated','They are too heavy','They contain radioactive elements'],correct:1,explanation:'In a composite, individual materials are bonded together and retain their structure — separating them back into their original components is very difficult or impossible.'},
+    {question:'What is designing for disassembly?',options:['Making products that fall apart easily','Designing products so they can be taken apart for repair or recycling','Designing products with a limited lifespan','Making products from composite materials'],correct:1,explanation:'Designing for disassembly means products can be taken apart with common tools — making repair, part replacement and recycling easier, extending product life and reducing waste.'},
+    {question:'What is planned obsolescence?',options:['Designing products to be easily recycled','Planning which materials to use in manufacture','Intentionally designing products with a limited lifespan','Planning how to reduce energy in manufacturing'],correct:2,explanation:'Planned obsolescence is the deliberate design of a limited product lifespan to encourage repeat purchasing — often considered unethical as it generates unnecessary waste.'},
+    {question:'Which is a POSITIVE example of planned obsolescence?',options:['A printer designed to fail after its warranty expires','A phone that cannot be updated after two years','A food product with a sell-by date for consumer safety','A laptop with components that cannot be replaced'],correct:2,explanation:'Food sell-by dates are a positive form of planned obsolescence — products are designed to be consumed within a limited time period for consumer safety.'},
+    {question:'Solar thermal energy is used to:',options:['Generate electricity from sunlight','Heat water using the sun\'s heat','Power wind turbines','Convert wave movement to electricity'],correct:1,explanation:'Solar thermal uses the sun\'s heat to heat water for domestic purposes such as showers and washing — distinct from solar PV which converts sunlight to electricity.'},
+  ]
+},
+
+/* ─────────────────── 5. CAD/CAM ─────────────────── */
+{
+  id:'cadcam', icon:'💻', title:'CAD / CAM',
+  subtitle:'Computer aided design and manufacture — tools, processes and applications',
+  flashcards:[
+    {topic:'CAD',question:'What does CAD stand for?',answer:'Computer Aided Design — the use of computer software to create, modify and optimise 2D drawings and 3D models of products before they are manufactured.'},
+    {topic:'CAD',question:'What is the difference between 2D and 3D CAD?',answer:'2D CAD produces flat drawings such as plans, elevations and technical drawings. 3D CAD creates three-dimensional models that can be rotated, rendered and tested virtually.'},
+    {topic:'CAD',question:'What is rendering in CAD?',answer:'Applying realistic colours, textures, shadows and lighting to a 3D CAD model to show what the finished product will look like.'},
+    {topic:'CAD',question:'What is a virtual prototype?',answer:'A 3D CAD model used to test and evaluate a design on screen before any physical model or product is made — saving time and materials.'},
+    {topic:'CAD',question:'What is rapid prototyping?',answer:'Using CAM processes such as 3D printing to quickly produce a physical prototype directly from a CAD file, allowing fast testing and evaluation of a design.'},
+    {topic:'CAM',question:'What does CAM stand for?',answer:'Computer Aided Manufacture — the use of computer-controlled machines to manufacture components directly from CAD data.'},
+    {topic:'CAM',question:'What is a CNC machine?',answer:'Computer Numeric Control — a machine tool controlled by a computer program that reads coordinates from a CAD file to cut, drill or shape material with high precision.'},
+    {topic:'CAM',question:'What is a laser cutter and what materials can it cut?',answer:'A CAM machine using a focused laser beam to cut or engrave materials. It can cut acrylic, wood, card and thin metals with great precision.'},
+    {topic:'CAM',question:'What is a CNC router and how does it work?',answer:'A computer-controlled cutting machine that uses a rotating cutting bit to cut or carve shapes from sheet materials such as wood, plastic and foam. It moves on X, Y and Z axes.'},
+    {topic:'CAM',question:'What is 3D printing (FDM) and how does it work?',answer:'Fused Deposition Modelling — a 3D printer that builds up an object layer by layer by melting and depositing thermoplastic filament according to a CAD file. It is an additive process.'},
+    {topic:'CAM',question:'What is the difference between a wastage CAM process and an additive CAM process?',answer:'Wastage processes (laser cutter, CNC router, CNC lathe) remove material. Additive processes (3D printing/FDM) build up material layer by layer.'},
+    {topic:'Advantages & Disadvantages',question:'Give three advantages of using CAD.',answer:'Designs can be easily edited and modified; virtual testing saves materials and time; accurate drawings produced quickly; files shared electronically worldwide; data fed directly to CAM machines.'},
+    {topic:'Advantages & Disadvantages',question:'Give two disadvantages of using CAD.',answer:'Expensive software and hardware required; staff need training; power dependency; technical faults can cause loss of work.'},
+    {topic:'Advantages & Disadvantages',question:'Give three advantages of using CAM.',answer:'High precision and accuracy; consistent quality — every component is identical; machines can run continuously; reduced human error; complex shapes can be produced that are very difficult by hand.'},
+    {topic:'Advantages & Disadvantages',question:'Give two disadvantages of using CAM.',answer:'High initial cost of machines; staff require training; machines need maintenance; less flexible for very small one-off runs.'},
+    {topic:'CAD/CAM in Industry',question:'Why is CAD/CAM particularly useful for batch production?',answer:'CAD files can be saved and reloaded to reproduce identical components repeatedly and consistently — faster, more accurate and more efficient than manual methods.'},
+    {topic:'CAD/CAM in Industry',question:'How does CAD/CAM reduce production costs in industry?',answer:'It reduces material waste (precise cutting), reduces labour costs (automated machines), reduces errors (consistent output) and speeds up production — all lowering the overall cost per unit.'},
+    {topic:'CAD/CAM in Industry',question:'What is a CNC lathe (CNC turning) used for?',answer:'Producing cylindrical components by rotating material against a computer-controlled cutting tool. Used to make shafts, bolts, handles and other round components in metal or plastic.'},
+  ],
+  notes:[
+    {title:'CAD — Computer Aided Design',summary:'CAD software allows designers to create, test and communicate designs digitally before manufacture.',
+     paragraphs:['CAD is the use of computer software to produce 2D drawings and 3D models. 2D CAD produces technical drawings, plans and elevations. 3D CAD creates solid models that can be rotated, rendered with realistic materials and tested virtually — saving significant time and cost.','CAD files can be shared instantly with manufacturers anywhere in the world and fed directly into CAM machines. Modern CAD software can simulate structural testing, check dimensions and produce photorealistic images for presentations.'],
+     keyPoints:['2D CAD — technical drawings, plans, elevations','3D CAD — solid models, rotation, rendering','Rendering — realistic materials, lighting and shadows applied to model','Virtual prototype — design tested on screen before physical making','Easy to modify without starting again','Files shared electronically worldwide instantly','CAD data fed directly to CAM machines','Common software: AutoCAD, SolidWorks, Fusion 360, SketchUp, 2D Design'],
+     keyTerms:[{term:'CAD',definition:'Computer Aided Design — using software to create and modify designs digitally.'},{term:'Rendering',definition:'Applying realistic colour, texture and lighting to a 3D model.'},{term:'Virtual prototype',definition:'A digital 3D model used to test a design before physical manufacture.'}]},
+    {title:'CAM — Computer Aided Manufacture',summary:'CAM uses computer-controlled machines to manufacture components precisely from CAD data.',
+     paragraphs:['CAM machines read data from CAD files and use it to control cutting tools, lasers or printers automatically. They operate on X, Y and Z axes to position tools with great precision. CAM processes are either wastage (removing material) or additive (building up material).'],
+     keyPoints:['Laser cutter — focused laser beam cuts/engraves acrylic, wood, card; very precise','CNC router — rotating bit cuts sheet materials on X/Y/Z axes; wood, plastic, foam','CNC lathe — rotating material + cutting tool; cylindrical components in metal or plastic','3D printer (FDM) — additive, layer by layer, thermoplastic filament','Vinyl cutter — blade cuts vinyl sheet for graphics and signage','Wastage = laser/router/lathe/milling; Additive = 3D printer','All CAM machines read coordinates from CAD files','Used in school workshops and large-scale industry'],
+     keyTerms:[{term:'CAM',definition:'Computer Aided Manufacture — using computer-controlled machines to produce components.'},{term:'CNC',definition:'Computer Numeric Control — a machine controlled by a program of coordinates.'},{term:'FDM',definition:'Fused Deposition Modelling — a 3D printing process using melted thermoplastic filament.'},{term:'Additive manufacture',definition:'Building up a product layer by layer (e.g. 3D printing).'}]},
+    {title:'Advantages, Disadvantages and Industry Applications',summary:'CAD/CAM offers precision and consistency but requires significant investment in equipment and training.',
+     paragraphs:['CAD/CAM has transformed design and manufacturing. Designs can be created, modified and shared far more quickly than manual methods. CAM machines produce components with consistent accuracy — every piece is identical — essential in batch and mass production.','However initial setup costs are high — machines are expensive, software requires licences, and staff need training. There is also dependency on power and technology.'],
+     keyPoints:['CAD advantages — fast editing, virtual testing, global file sharing, direct link to CAM','CAD disadvantages — expensive software/hardware, training needed, power dependency','CAM advantages — high precision, consistent quality, runs continuously, complex shapes achievable','CAM disadvantages — high machine cost, maintenance required, training needed','CAD/CAM reduces waste, labour costs and errors','Ideal for batch and mass production where consistency is essential','Files designed in one country can be sent to manufacturers in another instantly'],
+     keyTerms:[{term:'Rapid prototyping',definition:'Quickly producing a physical prototype directly from CAD data using processes like 3D printing.'}]},
+  ],
+  mcqs:[
+    {question:'What does CAD stand for?',options:['Computer Aided Drawing','Computer Aided Design','Computer Automated Design','Computer Aided Development'],correct:1,explanation:'CAD stands for Computer Aided Design — software used to create 2D drawings and 3D models of products digitally before manufacture.'},
+    {question:'What is a virtual prototype?',options:['A physical model made from card','A 3D CAD model used to test a design on screen','A prototype made using a 3D printer','A hand-drawn sketch of a product'],correct:1,explanation:'A virtual prototype is a digital 3D model that can be tested and evaluated on screen before any physical model is made, saving time and materials.'},
+    {question:'Which of the following is an ADDITIVE CAM process?',options:['Laser cutting','CNC routing','3D printing (FDM)','CNC turning'],correct:2,explanation:'3D printing (FDM) is additive — it builds up material layer by layer. Laser cutting, CNC routing and turning are all wastage processes.'},
+    {question:'A laser cutter is most suitable for cutting:',options:['Thick steel plates','Acrylic, wood and card','Concrete blocks','Glass sheets'],correct:1,explanation:'Laser cutters are ideal for cutting and engraving acrylic, wood, card and thin materials with great precision.'},
+    {question:'What does CNC stand for?',options:['Computer Numeric Control','Computerised Network Cutting','Central Numeric Cutter','Computer Network Control'],correct:0,explanation:'CNC stands for Computer Numeric Control — machines controlled by a computer program using coordinates to direct cutting tools.'},
+    {question:'Which is an advantage of CAM over manual manufacture?',options:['Lower initial setup cost','More flexible for one-off unique items','Consistent and identical quality across all components','No training required'],correct:2,explanation:'CAM machines produce every component to exactly the same specification — consistency and accuracy are major advantages, especially in batch and mass production.'},
+    {question:'What is rendering in CAD?',options:['Printing a technical drawing','Sending a CAD file to a CNC machine','Applying realistic colour, texture and lighting to a 3D model','Converting a 3D model to a 2D drawing'],correct:2,explanation:'Rendering applies realistic materials, colours, shadows and lighting to a 3D CAD model to show what the finished product will look like.'},
+    {question:'A CNC router operates on which axes?',options:['X and Y only','X, Y and Z','A, B and C','Vertical and horizontal only'],correct:1,explanation:'A CNC router moves on three axes — X (left/right), Y (forward/back) and Z (up/down) — allowing it to cut complex shapes in sheet materials.'},
+    {question:'What material does a 3D printer (FDM) use?',options:['Liquid resin','Thermoplastic filament','Metal powder','Glass fibre'],correct:1,explanation:'FDM 3D printers melt thermoplastic filament and deposit it layer by layer to build up a solid object.'},
+    {question:'Why is CAD/CAM particularly valuable in batch production?',options:['It only works for one product at a time','CAD files can be reloaded to reproduce identical components consistently','It eliminates the need for any design work','It is cheaper than hand tools'],correct:1,explanation:'Saved CAD files can be reloaded and run again to produce identical batches — consistently accurate and far more efficient than manual methods for repeat production.'},
+  ]
+},
+
+/* ─────────────────── 6. MANUFACTURING AT SCALE ─────────────────── */
+{
+  id:'manufacturing_scale', icon:'🏭', title:'Manufacturing at Scale',
+  subtitle:'One-off, batch and mass production — jigs, templates and economies of scale',
+  flashcards:[
+    {topic:'One-off Production',question:'What is one-off (job) production?',answer:'The manufacture of a single, unique product made to a specific customer\'s requirements. Each product is individual and not repeated — e.g. a bespoke piece of furniture or a prototype.'},
+    {topic:'One-off Production',question:'Give two advantages of one-off production.',answer:'The product is tailored exactly to the customer\'s needs; high quality craftsmanship; the customer gets a unique product.'},
+    {topic:'One-off Production',question:'Give two disadvantages of one-off production.',answer:'Very expensive because skilled labour takes a long time; no economies of scale; slow production rate.'},
+    {topic:'Batch Production',question:'What is batch production?',answer:'The manufacture of a set quantity (batch) of identical products. Once one batch is complete, the machines can be reset to produce a different product or a new batch.'},
+    {topic:'Batch Production',question:'Give two advantages of batch production.',answer:'More cost-effective than one-off; machines can be reprogrammed for different products; consistent quality within each batch.'},
+    {topic:'Batch Production',question:'Give two disadvantages of batch production.',answer:'Downtime when machines are being reset between batches; storage needed for part-finished batches; less flexible than one-off.'},
+    {topic:'Batch Production',question:'What is a jig and why is it used in batch production?',answer:'A device that holds and guides a tool or material during manufacture. It ensures every component in a batch is made to exactly the same dimensions — improving consistency and speed.'},
+    {topic:'Mass Production',question:'What is mass (continuous) production?',answer:'The continuous manufacture of very large quantities of identical products, usually on a production line, running continuously. Used when demand is extremely high.'},
+    {topic:'Mass Production',question:'Give two advantages of mass production.',answer:'Very low cost per unit due to economies of scale; fast production rate; consistent and uniform quality; machines run continuously.'},
+    {topic:'Mass Production',question:'Give two disadvantages of mass production.',answer:'Very high initial setup and tooling costs; inflexible — difficult to change the product; workers may perform repetitive tasks; large investment in machinery needed.'},
+    {topic:'Mass Production',question:'What is a production line?',answer:'A series of workstations or machines where each stage of manufacture is completed in sequence, with the product moving from one stage to the next until complete.'},
+    {topic:'Jigs & Templates',question:'What is a template and how is it used in production?',answer:'A flat pattern cut from a hard material (e.g. plywood or metal sheet) used to mark out or check identical shapes on multiple workpieces — ensuring consistency across a batch.'},
+    {topic:'Jigs & Templates',question:'What is a former used for in manufacturing?',answer:'A shaped block or mould used to form material into a specific shape during processes such as vacuum forming, laminating or press forming. Ensures every formed piece is identical.'},
+    {topic:'Jigs & Templates',question:'What is the difference between a jig and a template?',answer:'A template is used for marking out identical shapes. A jig holds and guides a tool (drill or saw) during the cutting or shaping process to ensure consistent, accurate results.'},
+    {topic:'Choosing the Right Method',question:'What three factors most influence the choice of production method?',answer:'The quantity required, the complexity of the product, and the budget/cost constraints.'},
+    {topic:'Choosing the Right Method',question:'What is meant by "economies of scale"?',answer:'As the quantity produced increases, the cost per unit decreases — fixed costs are spread across more products, and bulk material purchasing reduces material costs.'},
+    {topic:'Choosing the Right Method',question:'How does production method affect product cost?',answer:'One-off = highest cost per unit (skilled labour, no economies of scale). Batch = moderate cost per unit. Mass production = lowest cost per unit (economies of scale, automated machinery).'},
+  ],
+  notes:[
+    {title:'One-off Production',summary:'A single unique product made to a specific customer\'s requirement — highest quality, highest cost.',
+     paragraphs:['One-off production involves making a single product from start to finish, designed and built to meet one specific customer\'s exact requirements. It is not repeated. Because each product is unique it requires skilled craftspeople who can work across all stages of manufacture without automated assistance.'],
+     keyPoints:['Single unique product — not repeated','Made to exact customer specification','Requires highly skilled labour','Slowest production method','Most expensive per unit — no economies of scale','High quality and craftsmanship','Examples — bespoke furniture, prototype models, architectural ironwork, custom jewellery'],
+     keyTerms:[{term:'One-off/job production',definition:'The manufacture of a single unique product to a customer\'s specific requirements.'},{term:'Bespoke',definition:'Custom made to an individual\'s exact requirements.'}]},
+    {title:'Batch Production',summary:'A set quantity of identical products — more efficient than one-off, more flexible than mass production.',
+     paragraphs:['Batch production manufactures a specific quantity of identical products at one time. Once the batch is complete, equipment can be reset to produce a different product or new batch. Jigs, templates and formers are widely used to ensure every component is identical without measuring and marking out each one individually.'],
+     keyPoints:['Set quantity of identical products produced together','Machines reset between batches — allows product variety','More cost-effective than one-off','Jigs and templates used for consistency','Some downtime during machine resetting','Moderate cost per unit','Examples — furniture batches, steel brackets, injection-moulded components in set runs'],
+     keyTerms:[{term:'Batch production',definition:'Manufacturing a specific quantity of identical products, after which machines are reset for another batch.'},{term:'Jig',definition:'A device that holds and guides tools or materials to ensure consistent, repeatable results.'},{term:'Downtime',definition:'Time lost when machines are being reset or maintained between production runs.'}]},
+    {title:'Mass Production and Economies of Scale',summary:'Continuous high-volume manufacture — lowest cost per unit, highest initial investment.',
+     paragraphs:['Mass production involves manufacturing very large quantities of identical products on an automated production line running continuously. Each workstation performs one specific task. This method has the lowest cost per unit because fixed costs are spread across enormous quantities and automation replaces most manual labour.'],
+     keyPoints:['Very large quantities continuously produced','Automated production line — each station performs one task','Lowest cost per unit','Economies of scale — fixed costs spread across huge quantities','Very high initial setup and tooling cost','Inflexible — difficult to change product','Examples — plastic bottles (injection moulding), car body panels (press forming), nails and screws'],
+     keyTerms:[{term:'Mass/continuous production',definition:'The continuous manufacture of very large identical quantities on an automated production line.'},{term:'Production line',definition:'A series of workstations where each stage of manufacture is completed in sequence.'},{term:'Economies of scale',definition:'The reduction in cost per unit as production quantity increases.'}]},
+    {title:'Jigs, Templates, Formers and Choosing a Method',summary:'Production aids ensure consistency; the right method depends on quantity, complexity and cost.',
+     paragraphs:['Jigs, templates and formers eliminate the need to individually measure and mark out each component, ensuring every piece is identical. A template marks out shapes; a jig guides a tool; a former shapes material during forming processes. The choice of production method is driven by quantity required, product complexity and budget available.'],
+     keyPoints:['Template — flat pattern for marking out identical shapes','Jig — holds/guides tool for consistent cutting or drilling','Former — shaped mould for forming materials (vacuum forming, laminating)','All three eliminate individual measurement — saving time and reducing errors','One-off = highest cost/unit, most flexibility','Batch = moderate cost/unit, some flexibility','Mass = lowest cost/unit, least flexibility'],
+     keyTerms:[{term:'Template',definition:'A flat pattern used to mark out identical shapes on multiple workpieces.'},{term:'Former',definition:'A shaped block used to form material into a specific shape consistently.'},{term:'Economies of scale',definition:'As production quantity increases, the cost per unit decreases.'}]},
+  ],
+  mcqs:[
+    {question:'What is one-off production?',options:['Making thousands of identical products on a production line','Making a single unique product to a customer\'s exact requirements','Making a set number of identical products in a run','Making products using only hand tools'],correct:1,explanation:'One-off production involves making a single, unique, bespoke product — not repeated. It requires skilled labour and is the most expensive method per unit.'},
+    {question:'Which production method has the HIGHEST cost per unit?',options:['Mass production','Continuous production','Batch production','One-off production'],correct:3,explanation:'One-off production is most expensive per unit — skilled labour is required throughout and there are no economies of scale.'},
+    {question:'What is a jig used for in batch production?',options:['Marking out identical shapes','Holding and guiding a tool to ensure consistent repeatable results','Forming materials into curved shapes','Measuring components after manufacture'],correct:1,explanation:'A jig holds and guides a tool such as a drill or saw to ensure every component in a batch is produced to exactly the same dimensions.'},
+    {question:'Which production method is MOST suitable for making 500 identical steel brackets?',options:['One-off production','Batch production','Mass production','Continuous production'],correct:1,explanation:'Batch production is most suitable for moderate quantities of identical products. Mass production would be used for much larger quantities.'},
+    {question:'What is meant by "economies of scale"?',options:['The cost increases as more products are made','The cost per unit decreases as production quantity increases','Products become lower quality when made in large quantities','The time taken to make each product increases with quantity'],correct:1,explanation:'Economies of scale means fixed costs are spread across more units as quantity increases, reducing the cost per unit.'},
+    {question:'Which of the following is a disadvantage of mass production?',options:['Low cost per unit','High consistency and quality','Very high initial setup and tooling costs','Machines can run continuously'],correct:2,explanation:'The main disadvantage of mass production is the enormous initial investment required in machinery, tooling and factory setup.'},
+    {question:'What is a template used for in production?',options:['Holding a drill bit in place','Forming plastic sheets into curved shapes','Marking out identical shapes on multiple workpieces','Joining two pieces of timber together'],correct:2,explanation:'A template is a flat pattern used to mark out identical shapes on multiple workpieces, ensuring consistency across a batch.'},
+    {question:'What is "downtime" in batch production?',options:['Time taken to make each product','Time lost when machines are being reset between batches','Time products spend in storage','Time taken to deliver finished products'],correct:1,explanation:'Downtime in batch production refers to time lost when machines need to be cleaned, reset or reprogrammed between production runs.'},
+    {question:'Which production method is MOST appropriate for manufacturing millions of plastic bottle caps?',options:['One-off production','Batch production','Mass/continuous production','Job production'],correct:2,explanation:'Extremely high quantities of identical simple products are best suited to mass/continuous production running on automated production lines.'},
+    {question:'Which THREE factors most influence the choice of production method?',options:['Colour, weight and texture','Quantity required, complexity of product, and budget','Designer\'s preference, location and season','Material colour, finish type and packaging'],correct:1,explanation:'The choice between one-off, batch and mass production is determined primarily by how many are needed, how complex the product is, and what budget is available.'},
+  ]
+},
+
+/* ─────────────────── 7. HEALTH & SAFETY ─────────────────── */
+{
+  id:'health_safety', icon:'🦺', title:'Health & Safety',
+  subtitle:'PPE, risk assessment, safe tool use and COSHH regulations',
+  flashcards:[
+    {topic:'Workshop Safety',question:'What is the most important general rule when working in a D&T workshop?',answer:'Always follow the teacher\'s instructions, work safely and sensibly, and never use tools or machines without permission and proper instruction.'},
+    {topic:'Workshop Safety',question:'Why must long hair be tied back in a workshop?',answer:'Loose hair can become caught in rotating machinery such as a lathe or drill, causing serious injury. It must be tied back or secured before using any machine.'},
+    {topic:'Workshop Safety',question:'What should you do if you find a damaged or faulty tool?',answer:'Stop using it immediately, report it to the teacher, and remove it from use. Never attempt to use or repair a faulty tool yourself.'},
+    {topic:'PPE',question:'What does PPE stand for?',answer:'Personal Protective Equipment — protective clothing and equipment worn to reduce the risk of injury when working with tools, materials or chemicals.'},
+    {topic:'PPE',question:'When must safety goggles be worn?',answer:'When using any machine tool (lathe, drill, grinder), when cutting metal, when using chemicals or adhesives, and when any process could cause particles or splashes to reach the eyes.'},
+    {topic:'PPE',question:'When should a dust mask be worn?',answer:'When sanding, cutting MDF, working with GRP/fibreglass, or using any process that creates fine dust or harmful particles that could be inhaled.'},
+    {topic:'PPE',question:'Why should gloves be worn when handling sheet metal?',answer:'Freshly cut metal edges are extremely sharp and can cause deep cuts. Gloves protect the hands when handling sharp-edged materials.'},
+    {topic:'PPE',question:'When should hearing protection be used?',answer:'When using loud machines over an extended period — such as routers, bandsaws or angle grinders — to prevent hearing damage from prolonged noise exposure.'},
+    {topic:'Risk Assessment',question:'What is a hazard?',answer:'Anything that has the potential to cause harm — for example a sharp tool, a trailing cable, a wet floor, a hot surface or a toxic chemical.'},
+    {topic:'Risk Assessment',question:'What is a risk?',answer:'The likelihood that a hazard will actually cause harm, combined with the severity of that harm.'},
+    {topic:'Risk Assessment',question:'What is a risk assessment?',answer:'A systematic process of identifying hazards in a work environment, evaluating the risk they pose, and putting control measures in place to reduce or eliminate that risk.'},
+    {topic:'Risk Assessment',question:'Give four control measures that can reduce risk in a workshop.',answer:'Wearing PPE, using machine guards, following correct procedures, keeping the work area tidy, ensuring proper training before using equipment, securing materials firmly before cutting.'},
+    {topic:'Risk Assessment',question:'What is a machine guard and why is it important?',answer:'A physical barrier fitted to a machine to prevent accidental contact with moving parts such as blades, drill bits or rotating chucks — preventing serious injury.'},
+    {topic:'Safe Tool Use',question:'What safety checks should be made before using a pillar drill?',answer:'Check the chuck key is removed before switching on; ensure the material is clamped securely; set correct speed; lower the guard; wear safety goggles.'},
+    {topic:'Safe Tool Use',question:'Why must the chuck key always be removed from a drill before switching it on?',answer:'If left in, the chuck key will be thrown out at high speed when the drill starts, potentially causing serious injury to anyone nearby.'},
+    {topic:'Safe Tool Use',question:'What safety precautions should be taken when using a craft knife?',answer:'Always cut away from the body; use a cutting mat; keep fingers behind the blade; replace blunt blades safely; store with blade retracted.'},
+    {topic:'Safe Tool Use',question:'Why should material always be secured before cutting?',answer:'Unsecured material can move during cutting, causing the tool to slip and potentially injure the user. It also results in inaccurate cuts.'},
+    {topic:'COSHH',question:'What does COSHH stand for?',answer:'Control of Substances Hazardous to Health — regulations requiring employers to assess and control exposure to hazardous substances such as adhesives, solvents, paints and MDF dust.'},
+    {topic:'COSHH',question:'Why must adhesives and finishes be used in a well-ventilated area?',answer:'Many adhesives, paints and varnishes contain solvents that release harmful and flammable fumes. Good ventilation dilutes the fumes and reduces the risk of inhalation and fire.'},
+  ],
+  notes:[
+    {title:'Workshop Safety Rules and Behaviour',summary:'Safe behaviour in the workshop protects everyone — most accidents are caused by carelessness.',
+     paragraphs:['The D&T workshop contains many potential hazards including sharp tools, rotating machinery, hot surfaces and hazardous chemicals. Safe working begins with the right attitude — following instructions, working sensibly and never rushing. The work area must always be kept clean and tidy.'],
+     keyPoints:['Always follow teacher instructions before using any tool or machine','Never use equipment without permission and proper instruction','Keep work area clean and tidy — remove off-cuts and waste','Long hair tied back; loose clothing tucked in; no open-toe footwear','Only one person operates a machine at a time','Report damaged or faulty tools immediately — do not use','Never distract someone using a machine','Know the location of first aid kit, fire exits and emergency stop buttons'],
+     keyTerms:[{term:'Hazard',definition:'Anything with the potential to cause harm.'},{term:'Risk',definition:'The likelihood and severity of harm from a hazard.'},{term:'Control measure',definition:'An action taken to reduce or eliminate a risk.'}]},
+    {title:'Personal Protective Equipment (PPE)',summary:'PPE protects the body when other control measures cannot fully eliminate risk.',
+     paragraphs:['Personal Protective Equipment is clothing or equipment worn to protect the body from specific hazards. It is the last line of defence — engineering controls and safe procedures come first. Different processes require different PPE and choosing the right protection for the task is essential.'],
+     keyPoints:['Safety goggles/glasses — machine use, metal cutting, chemical use, grinding','Dust mask — sanding, cutting MDF, GRP/fibreglass work','Ear defenders/plugs — routers, bandsaws, angle grinders, extended machine use','Gloves — handling sharp-edged sheet metal, hot materials','Apron — protects clothing from chemicals, adhesives and finishes','Closed-toe shoes/boots — always in the workshop','PPE must fit correctly to be effective'],
+     keyTerms:[{term:'PPE',definition:'Personal Protective Equipment — clothing and devices worn to protect the body from workplace hazards.'},{term:'COSHH',definition:'Control of Substances Hazardous to Health — regulations for managing hazardous materials.'}]},
+    {title:'Risk Assessment',summary:'Identify hazards, evaluate risk and implement control measures before work begins.',
+     paragraphs:['A risk assessment involves three steps: identifying the hazards present, evaluating the level of risk (considering likelihood and severity), and deciding on control measures to reduce that risk. In a D&T workshop, hazards include sharp tools, rotating machinery, hazardous substances, electrical equipment and hot surfaces.'],
+     keyPoints:['Step 1 — identify all hazards','Step 2 — assess the risk (likelihood × severity)','Step 3 — implement control measures','Machine guards — prevent contact with moving parts','Securing material — vice, clamps or jigs prevent movement during cutting','Training — only use machines after proper instruction','Tidiness — clear floors and benches reduce trip and slip hazards','Know location of first aid, fire exits, emergency stops'],
+     keyTerms:[{term:'Risk assessment',definition:'A systematic process of identifying hazards, evaluating risk and implementing control measures.'},{term:'Machine guard',definition:'A physical barrier preventing accidental contact with dangerous moving parts.'}]},
+    {title:'Safe Tool Use and COSHH',summary:'Every tool has specific safety requirements; hazardous substances must be controlled.',
+     paragraphs:['Before using any machine, the operator must check guards are in place, materials are secured, and appropriate PPE is worn. The chuck key must always be removed from a pillar drill before switching on. Adhesives, paints and varnishes must be used in well-ventilated areas. MDF dust is particularly hazardous — it contains resin particles that are highly irritating to the lungs.'],
+     keyPoints:['Pillar drill — remove chuck key before starting; clamp material; lower guard; wear goggles','Craft knife — cut away from body; use cutting mat; retract blade when not in use','Lathe — tie back hair; remove chuck key; wear goggles; stand to side','Soldering/brazing — ventilation essential; wear goggles; do not inhale fumes','Adhesives/finishes — well-ventilated area; avoid skin and eye contact','MDF dust — always wear dust mask; contains resin particles; highly irritating to lungs','GRP/fibreglass — dust mask and gloves essential; glass fibres are sharp and harmful if inhaled'],
+     keyTerms:[{term:'COSHH',definition:'Control of Substances Hazardous to Health — regulations requiring assessment and control of hazardous substances.'},{term:'Ventilation',definition:'Adequate airflow to dilute and remove harmful fumes or dust from the working environment.'},{term:'Chuck key',definition:'The tool used to tighten a drill chuck — must always be removed before the drill is switched on.'}]},
+  ],
+  mcqs:[
+    {question:'What does PPE stand for?',options:['Personal Protection Equipment','Protective Personal Equipment','Personal Protective Equipment','Prepared Protective Equipment'],correct:2,explanation:'PPE stands for Personal Protective Equipment — clothing and devices worn to protect the body from workplace hazards.'},
+    {question:'Why must the chuck key always be removed from a drill before switching it on?',options:['It slows the drill down','It will be thrown out at high speed causing potential serious injury','It damages the chuck','It prevents the drill from working'],correct:1,explanation:'If left in, the chuck key is flung out at dangerous speed the moment the drill starts rotating, posing a serious risk of injury.'},
+    {question:'When should a dust mask be worn in the workshop?',options:['Only when using a hacksaw','When sanding, cutting MDF or working with fibreglass','Only when applying paint','Whenever using any hand tool'],correct:1,explanation:'Fine particles from sanding, MDF cutting and GRP work are harmful if inhaled. MDF dust contains resin particles particularly irritating to the lungs.'},
+    {question:'What is a hazard?',options:['The likelihood that harm will occur','Anything that has the potential to cause harm','A type of machine guard','A control measure used to reduce risk'],correct:1,explanation:'A hazard is anything with the potential to cause harm — a sharp tool, trailing cable, wet floor or toxic chemical.'},
+    {question:'What does COSHH stand for?',options:['Control of Safe Substances and Hazardous Health','Control of Substances Hazardous to Health','Code of Safety for Substances Harmful to Humans','Control of Safe and Hazardous Handling'],correct:1,explanation:'COSHH stands for Control of Substances Hazardous to Health — regulations requiring assessment and control of hazardous substances.'},
+    {question:'What PPE should be worn when using a centre lathe?',options:['Gloves and ear defenders','Safety goggles and tied-back hair with no loose clothing','Dust mask and gloves','Hard hat and steel-capped boots'],correct:1,explanation:'Safety goggles protect from metal particles; hair must be tied back and loose clothing secured to prevent them being caught in the rotating chuck.'},
+    {question:'Why must adhesives and finishes be used in a well-ventilated area?',options:['To make them dry faster','Because their solvent fumes are harmful and flammable','To improve their adhesive strength','To prevent them from freezing'],correct:1,explanation:'Many adhesives, paints and varnishes contain solvents releasing harmful and flammable fumes. Good ventilation reduces the risk of inhalation and fire.'},
+    {question:'What is a risk assessment?',options:['A list of all tools in the workshop','A systematic process of identifying hazards, evaluating risk and implementing control measures','A record of all accidents','A set of instructions for using a machine'],correct:1,explanation:'A risk assessment identifies hazards, assesses likelihood and severity of harm, and establishes control measures to reduce risk before work begins.'},
+    {question:'Why must material always be secured before cutting?',options:['To make marking out easier','To prevent movement that could cause the tool to slip and injure the user','To improve the surface finish','To prevent the material from splitting'],correct:1,explanation:'Unsecured material can shift during cutting, causing the tool to slip — potentially causing serious injury and inaccurate cuts.'},
+    {question:'What should you do if you discover a damaged or faulty tool?',options:['Try to repair it yourself','Continue using it carefully','Stop using it, report it to the teacher and remove it from use','Put it back in the rack'],correct:2,explanation:'A damaged or faulty tool must be taken out of use immediately and reported to the teacher. Using a faulty tool significantly increases the risk of injury.'},
+  ]
+},
+
+/* ─────────────────── 8. QUALITY CONTROL & ASSURANCE ─────────────────── */
+{
+  id:'quality', icon:'✅', title:'Quality Control & Assurance',
+  subtitle:'Inspection, tolerances, testing methods and quality management systems',
+  flashcards:[
+    {topic:'Quality Control',question:'What is quality control (QC)?',answer:'The process of checking and inspecting products during and after manufacture to ensure they meet the required standard and specification. Faulty products are identified and rejected or corrected.'},
+    {topic:'Quality Control',question:'At what stages can quality control checks be carried out?',answer:'Before manufacture (checking raw materials), during manufacture (checking components at each stage) and after manufacture (final inspection of the finished product).'},
+    {topic:'Quality Control',question:'Why is it better to carry out QC checks during manufacture rather than only at the end?',answer:'Catching errors early prevents wasted time and materials on a faulty product. It is far more costly to discover a fault after the product is complete.'},
+    {topic:'Quality Control',question:'What happens to a product that fails a quality control check?',answer:'It is either rejected and scrapped, reworked to correct the fault, or quarantined for further inspection depending on the nature and severity of the fault.'},
+    {topic:'Quality Assurance',question:'What is quality assurance (QA)?',answer:'A system of planned procedures and standards put in place throughout the entire production process to prevent faults from occurring in the first place.'},
+    {topic:'Quality Assurance',question:'What is the difference between quality control and quality assurance?',answer:'Quality control detects faults by inspection and testing. Quality assurance prevents faults by establishing systems, standards and procedures throughout the entire process.'},
+    {topic:'Quality Assurance',question:'What does ISO 9001 refer to?',answer:'An internationally recognised standard for quality management systems — certifying that a company consistently meets customer requirements and continuously improves its processes.'},
+    {topic:'Tolerances',question:'What is a tolerance in manufacturing?',answer:'The acceptable range of variation in a dimension — the difference between the maximum and minimum acceptable size. For example, 10mm ± 0.5mm means between 9.5mm and 10.5mm is acceptable.'},
+    {topic:'Tolerances',question:'Why are tolerances necessary in manufacturing?',answer:'No manufacturing process is perfectly accurate — small variations are inevitable. Tolerances define the acceptable limits so that components still fit together and function correctly.'},
+    {topic:'Tolerances',question:'What is meant by a "tight" tolerance?',answer:'A very small acceptable range of variation — e.g. ± 0.01mm — requiring high precision machinery. Used in engineering components that must fit exactly.'},
+    {topic:'Tolerances',question:'Why do tighter tolerances increase manufacturing cost?',answer:'Tighter tolerances require more precise machinery, slower production, more frequent checking and greater skill — all of which increase time and cost per component.'},
+    {topic:'Testing Methods',question:'Name three tools used to check dimensions during quality control.',answer:'Vernier calipers, micrometer screw gauge, steel rule, try square, engineer\'s square, go/no-go gauge — any three.'},
+    {topic:'Testing Methods',question:'What is a go/no-go gauge and how is it used?',answer:'A checking device with two ends — a "go" end that should fit the component, and a "no-go" end that should not. If the go end fits and the no-go end does not, the component is within tolerance.'},
+    {topic:'Testing Methods',question:'What is a visual inspection?',answer:'A quality check carried out by eye to identify surface defects such as scratches, cracks, uneven finishes, poor joints or incorrect assembly — without measuring instruments.'},
+    {topic:'Testing Methods',question:'What is a functional test?',answer:'Testing a completed product by using it as intended to check that it works correctly, safely and as specified — for example checking a drawer slides smoothly or a lid closes properly.'},
+    {topic:'Testing Methods',question:'Why is testing against the design specification important?',answer:'The specification sets out all the requirements the product must meet. Testing confirms whether the product achieves its intended purpose, fits its target user and meets all stated criteria.'},
+  ],
+  notes:[
+    {title:'Quality Control',summary:'Inspecting and testing products at key stages to identify and reject faults.',
+     paragraphs:['Quality control is the process of checking products and components against a set standard at defined points during and after manufacture. The purpose is to identify any items that do not meet the required standard so they can be rejected, reworked or scrapped before reaching the customer.'],
+     keyPoints:['Checks at three stages — incoming materials, during manufacture, final inspection','Identifies faulty products before they reach the customer','Faulty items — rejected, reworked or scrapped','Sampling — testing a proportion of a batch rather than every item','Reduces customer complaints and product returns','Quality control is reactive — it finds faults after they occur'],
+     keyTerms:[{term:'Quality control',definition:'Inspecting and testing products to ensure they meet required standards.'},{term:'Sampling',definition:'Testing a representative proportion of a production batch rather than every item.'},{term:'Reject',definition:'A component or product that fails to meet the required standard.'}]},
+    {title:'Quality Assurance',summary:'Preventing faults by building systems and standards into every stage of the production process.',
+     paragraphs:['Quality assurance takes a proactive approach — rather than waiting to find faults, it establishes systems, procedures and standards designed to prevent faults from occurring. This includes training staff, maintaining machinery regularly, using standardised procedures, and documenting every stage of production.'],
+     keyPoints:['QA is proactive — prevents faults rather than detecting them','Includes staff training, machine maintenance, documented procedures','ISO 9001 — international quality management standard','Reduces waste, rework, returns and complaints','Protects company reputation and customer trust','QA covers the entire process — from design to delivery'],
+     keyTerms:[{term:'Quality assurance',definition:'A system of planned procedures designed to prevent faults throughout the production process.'},{term:'ISO 9001',definition:'An internationally recognised quality management standard.'},{term:'Calibration',definition:'Regularly checking and adjusting measuring instruments to ensure accuracy.'}]},
+    {title:'Tolerances',summary:'Tolerances define the acceptable range of variation — essential for components to fit and function.',
+     paragraphs:['In any manufacturing process, perfect accuracy is impossible — small variations will always occur. Tolerances define the acceptable upper and lower limits of a dimension. The tighter the tolerance, the more precise the manufacture must be — requiring better machinery, slower speeds and more frequent checking, all of which increase cost.'],
+     keyPoints:['Tolerance = acceptable range of variation in a dimension','Expressed as ± a value, e.g. 10mm ± 0.5mm means 9.5–10.5mm acceptable','Tight tolerance — small range, high precision needed, higher cost','Loose tolerance — larger range, acceptable where precision is less critical','Ensures interchangeable parts fit together correctly in batch and mass production','Designers choose tolerances based on function and cost'],
+     keyTerms:[{term:'Tolerance',definition:'The acceptable range of variation in a manufactured dimension.'},{term:'Upper limit',definition:'The maximum acceptable dimension.'},{term:'Lower limit',definition:'The minimum acceptable dimension.'}]},
+    {title:'Checking and Testing Methods',summary:'Precision instruments and functional tests verify that products meet all requirements.',
+     paragraphs:['Quality control checks use measuring instruments and testing methods depending on what is being checked. Dimensional checks use precision instruments to verify components are within tolerance. Visual inspections check for surface defects. Functional tests check the product works as intended. Testing against the original design specification confirms all criteria are met.'],
+     keyPoints:['Vernier/digital calipers — measure internal and external dimensions precisely','Micrometer — measure to fractions of a mm; depth, length, thickness','Go/no-go gauge — quick pass/fail check within tolerance','Try square / engineer\'s square — check right angles and flatness','Visual inspection — surface defects, finish, assembly quality','Functional test — does it work as intended?','Testing against specification — does it meet all design criteria?','Sampling — check a proportion of a batch in production'],
+     keyTerms:[{term:'Go/no-go gauge',definition:'A two-ended checking device to verify a component is within tolerance.'},{term:'Visual inspection',definition:'Checking a product by eye for surface defects, finish quality and correct assembly.'},{term:'Functional test',definition:'Testing a product by using it as intended to verify it works correctly.'}]},
+  ],
+  mcqs:[
+    {question:'What is the difference between quality control and quality assurance?',options:['They are the same thing','QC detects faults by inspection; QA prevents faults through systems and procedures','QA detects faults; QC prevents them','QC is for batch; QA only for mass production'],correct:1,explanation:'Quality control is reactive — it finds faults by checking and testing. Quality assurance is proactive — it prevents faults by establishing systems throughout the process.'},
+    {question:'What is a tolerance in manufacturing?',options:['The total cost of a component','The acceptable range of variation in a dimension','The time allowed for each manufacturing stage','The number of checks carried out per batch'],correct:1,explanation:'A tolerance defines the acceptable upper and lower limits of a dimension — ensuring components still fit and function correctly despite small manufacturing variations.'},
+    {question:'A hole is specified as 20mm ± 0.5mm. Which measurement would FAIL the tolerance check?',options:['19.6mm','20.3mm','20.5mm','20.6mm'],correct:3,explanation:'The acceptable range is 19.5mm to 20.5mm. A measurement of 20.6mm exceeds the upper limit and therefore fails the tolerance check.'},
+    {question:'What is a go/no-go gauge used for?',options:['Measuring the exact diameter of a component','Quickly checking whether a component is within its specified tolerance','Checking the surface finish','Measuring the depth of a hole'],correct:1,explanation:'A go/no-go gauge gives a quick pass/fail result — the go end must fit and the no-go end must not. If both conditions are met the component is within tolerance.'},
+    {question:'Why is it better to identify faults during manufacture rather than at the end?',options:['It is easier to see faults on unfinished products','It prevents wasted time and materials being spent on a faulty product','Faults are less serious during manufacture','It is a legal requirement'],correct:1,explanation:'Identifying faults early prevents further time and materials being wasted. End-of-line inspection is more costly because the full manufacturing cost has already been incurred.'},
+    {question:'What does ISO 9001 certify?',options:['That a product meets safety standards','That a company has an internationally recognised quality management system','That materials used are environmentally sustainable','That a product has been tested independently'],correct:1,explanation:'ISO 9001 certifies that a company has robust quality management systems ensuring consistent quality and continuous improvement.'},
+    {question:'Which instrument gives the MOST precise measurement of thickness?',options:['Steel rule','Try square','Micrometer screw gauge','Marking gauge'],correct:2,explanation:'A micrometer screw gauge measures to fractions of a millimetre — far more precisely than a steel rule. It is the most precise common workshop measuring instrument.'},
+    {question:'What is a functional test?',options:['Checking dimensions with a vernier caliper','Testing a product by using it as intended to verify it works correctly','Inspecting the surface finish by eye','Checking components with a go/no-go gauge'],correct:1,explanation:'A functional test checks that a finished product performs its intended purpose correctly and safely.'},
+    {question:'Why do tighter tolerances increase manufacturing cost?',options:['Tighter tolerances require more expensive materials','They require more precise machinery, slower production and more frequent checking','They produce more waste material','They require more workers'],correct:1,explanation:'Tighter tolerances demand higher precision machinery at slower speeds with more frequent checks — all adding time and cost.'},
+    {question:'What is sampling in quality control?',options:['Testing every single product before dispatch','Testing a representative proportion of a batch rather than every item','Taking a small piece of material to test its properties','Checking only the first product in a batch'],correct:1,explanation:'Sampling tests a proportion of items from a batch — making quality control practical and cost-effective in large-scale production.'},
+  ]
+},
+
+/* ─────────────────── 9. SOCIAL, MORAL & CULTURAL ─────────────────── */
+{
+  id:'social_moral', icon:'🌍', title:'Social, Moral & Cultural Issues',
+  subtitle:'Ethical design, intellectual property, inclusivity and cultural considerations',
+  flashcards:[
+    {topic:'Social Issues',question:'What is meant by the social impact of a product?',answer:'The effect a product has on people and society — including how it affects health, wellbeing, employment, lifestyle and communities both locally and globally.'},
+    {topic:'Social Issues',question:'What is inclusive design?',answer:'Designing products that can be used by as wide a range of people as possible, regardless of age, ability, gender or background — removing barriers that exclude certain groups.'},
+    {topic:'Social Issues',question:'What is universal design?',answer:'A design approach that aims to create products and environments usable by all people without the need for adaptation — for example a ramp accessible to wheelchair users and pushchair users alike.'},
+    {topic:'Social Issues',question:'What is meant by the "global supply chain" and why does it raise social concerns?',answer:'The worldwide network of companies involved in producing and delivering a product. Concerns arise when workers in developing countries are paid very low wages, work in poor conditions or are exploited.'},
+    {topic:'Ethics',question:'What is meant by ethical design?',answer:'Designing products in a way that is morally responsible — considering the impact on people, animals and the environment throughout the product\'s entire life cycle.'},
+    {topic:'Ethics',question:'What are fair trade principles and why are they relevant to designers?',answer:'Fair trade ensures workers receive fair wages and safe conditions. Designers have a moral responsibility to source materials and components from ethical suppliers.'},
+    {topic:'Ethics',question:'What is intellectual property (IP)?',answer:'The legal ownership of a design, invention or creative work — protected by patents, copyrights and trademarks. Copying someone else\'s design without permission is illegal and unethical.'},
+    {topic:'Ethics',question:'What is a patent?',answer:'A legal right granted to an inventor that prevents others from making, using or selling their invention without permission — typically for 20 years.'},
+    {topic:'Ethics',question:'What is a copyright?',answer:'A legal protection giving the creator of an original work the exclusive right to use and reproduce it — protecting drawings, artwork and written specifications in design.'},
+    {topic:'Ethics',question:'What is a trademark?',answer:'A recognisable symbol, logo, word or phrase legally registered to a company or individual to identify their products and distinguish them from competitors.'},
+    {topic:'Culture',question:'What is meant by cultural sensitivity in product design?',answer:'Being aware that colours, symbols, shapes and materials can have different meanings in different cultures — and designing products that are appropriate and respectful for their intended market.'},
+    {topic:'Culture',question:'Give an example of how colour can have different cultural meanings.',answer:'White is associated with purity and weddings in Western cultures but with mourning and death in some Asian cultures. Red symbolises good luck in China but danger or warning in many Western contexts.'},
+    {topic:'Culture',question:'Why must designers research the cultural context of their target market?',answer:'To avoid producing products that are offensive, inappropriate or misunderstood — and to ensure the product appeals to and respects the values of its intended users.'},
+    {topic:'Inclusive Design',question:'Give two examples of inclusive design features in a product.',answer:'Large-grip handles for users with limited hand strength; high-contrast colours for visually impaired users; audio instructions for users who cannot read; adjustable height settings.'},
+    {topic:'Inclusive Design',question:'Why is designing inclusively good for business as well as society?',answer:'It expands the potential market — a product usable by more people sells to more people. It also demonstrates social responsibility, enhancing brand reputation and customer loyalty.'},
+  ],
+  notes:[
+    {title:'Social Issues in Design',summary:'Products affect people and communities — designers must consider social impact throughout the design process.',
+     paragraphs:['Every product has a social impact — it affects the lives of the people who make it, use it and ultimately dispose of it. Products that are well designed can transform lives — improving accessibility, safety, health and quality of life. Poorly considered design can cause harm, encourage waste, exploit workers or exclude groups of users.','The global supply chain means materials and components often pass through many countries before reaching the consumer. Designers must take responsibility for conditions throughout this chain.'],
+     keyPoints:['Social impact — effect on people, communities, health and wellbeing','Positive impacts — improved accessibility, safer products, employment creation','Negative impacts — unsafe products, worker exploitation, environmental damage','Global supply chain — materials sourced and processed across multiple countries','Fair wages and safe conditions must be considered throughout the supply chain','Products shape behaviour and lifestyle — designers influence society'],
+     keyTerms:[{term:'Social impact',definition:'The effect a product has on people, communities and society.'},{term:'Global supply chain',definition:'The worldwide network of companies involved in producing and delivering a product.'},{term:'Inclusive design',definition:'Designing for as wide a range of users as possible, removing barriers to access.'}]},
+    {title:'Moral & Ethical Responsibilities',summary:'Designers have a moral duty to consider the impact of their work on people, animals and the environment.',
+     paragraphs:['Ethical design means making responsible choices at every stage — from selecting sustainably sourced materials, to ensuring fair pay for workers, to designing products that are safe and honest. Planned obsolescence, misleading advertising and use of hazardous materials are examples of unethical practice.','Intellectual property law protects designers and inventors. Patents, copyrights and trademarks give legal ownership of designs and ideas. Copying another designer\'s work without permission is both unethical and illegal.'],
+     keyPoints:['Ethical design — responsible choices throughout the entire process','Fair trade — fair wages and safe conditions for workers in the supply chain','Planned obsolescence — intentionally limiting product life is considered unethical by many','Patent — protects an invention for typically 20 years','Copyright — protects drawings, artwork, written work','Trademark — protects brand logos and names','Copying a design without permission is illegal'],
+     keyTerms:[{term:'Ethical design',definition:'Designing with moral responsibility for people, animals and the environment.'},{term:'Patent',definition:'A legal right protecting an invention from being copied for a set period.'},{term:'Copyright',definition:'Legal protection of an original creative work.'},{term:'Trademark',definition:'A legally registered symbol or name identifying a brand.'}]},
+    {title:'Cultural Considerations',summary:'Designers must research and respect the cultural values of their target market.',
+     paragraphs:['Culture shapes how people perceive and respond to products. Colours, shapes, symbols, materials and imagery all carry cultural meaning that varies significantly around the world. A design appropriate in one country may be deeply offensive in another. Religious beliefs may affect acceptable materials and imagery.'],
+     keyPoints:['Colours carry different cultural meanings — always research target market','White — purity/weddings (West) vs mourning (some Asian cultures)','Red — luck (China) vs danger/warning (West)','Religious beliefs may affect material choice — some avoid certain animal products','Symbols and imagery must be culturally appropriate','Language and text direction affects layout design','Thorough cultural research is essential before designing for international markets'],
+     keyTerms:[{term:'Cultural sensitivity',definition:'Awareness that design choices carry different meanings in different cultures.'},{term:'Target market',definition:'The specific group of people a product is designed and marketed for.'}]},
+    {title:'Inclusive & Universal Design',summary:'Designing for everyone — regardless of age, ability or background — is both a social responsibility and good business.',
+     paragraphs:['Inclusive design specifically addresses the needs of groups often excluded — the elderly, people with disabilities and those with sensory impairments. Universal design goes further, aiming to create products requiring no adaptation for any user. Designers carry a broad responsibility — to their clients, to users, to society and to the environment.'],
+     keyPoints:['Inclusive design — specifically addresses excluded groups (elderly, disabled, sensory impaired)','Universal design — usable by everyone without modification from the outset','Examples: ramps (wheelchair + pushchair), large-grip handles, high-contrast colours, audio instructions','Benefits — larger market, enhanced reputation, social responsibility','Designer responsibilities — to client, user, society and environment','Good design improves lives — poor design causes harm'],
+     keyTerms:[{term:'Universal design',definition:'Creating products usable by all people without adaptation.'},{term:'Life cycle assessment',definition:'Evaluating the environmental and social impact of a product from raw materials to disposal.'},{term:'Designer responsibility',definition:'The obligation of a designer to consider the impact of their work on users, society and the environment.'}]},
+  ],
+  mcqs:[
+    {question:'What is inclusive design?',options:['Designing products only for professional users','Designing products usable by as wide a range of people as possible','Designing for a single specific target market','Designing products to be as cheap as possible to manufacture'],correct:1,explanation:'Inclusive design removes barriers that exclude certain groups — such as the elderly, disabled users or people with sensory impairments — so products can be used by as many people as possible.'},
+    {question:'What is a patent?',options:['A recognisable logo registered to a company','A legal right protecting an invention from being copied for a set period','A type of copyright for product drawings','A standard for quality management'],correct:1,explanation:'A patent gives an inventor the legal right to prevent others from making, using or selling their invention without permission — typically for 20 years.'},
+    {question:'White is used as the primary colour for packaging sold in Western Europe. Why might this be a concern for Asian markets?',options:['White packaging is more expensive','White is associated with mourning in some Asian cultures','White does not show product information clearly','White packaging is not permitted in Asian markets'],correct:1,explanation:'White symbolises purity in Western cultures but is associated with mourning and death in some Asian cultures — potentially making the product unappealing or offensive.'},
+    {question:'What does "ethical design" mean?',options:['Designing products that are aesthetically pleasing','Designing with moral responsibility for people, animals and the environment','Designing products that meet legal safety standards','Designing products that are easy to manufacture'],correct:1,explanation:'Ethical design means making morally responsible choices throughout the design process — considering the impact on workers, users, communities and the environment.'},
+    {question:'What is the global supply chain?',options:['A network of designers working internationally','The worldwide network of companies involved in producing and delivering a product','A system for distributing products to global markets','An international quality assurance standard'],correct:1,explanation:'The global supply chain encompasses every company and process involved in getting a product from raw materials to the consumer — raising concerns about fair wages, safe conditions and environmental impact.'},
+    {question:'What is the difference between a copyright and a trademark?',options:['They are the same thing','Copyright protects creative works; a trademark protects a brand name or logo','A trademark protects inventions; copyright protects brand names','Copyright is for products; trademarks are for services only'],correct:1,explanation:'Copyright gives legal protection to original creative works such as drawings and designs. A trademark legally registers a company\'s name, logo or symbol to identify their brand.'},
+    {question:'Which of the following is an example of universal design?',options:['A product designed specifically for wheelchair users','A ramp accessible to wheelchair users, pushchair users and cyclists alike','A product with very large text for visually impaired users only','A product designed for elderly users only'],correct:1,explanation:'Universal design creates solutions usable by everyone without modification. A ramp benefits wheelchair users, pushchair users, cyclists and delivery workers.'},
+    {question:'A manufacturer deliberately designs a product to fail just after its warranty expires. This is an example of:',options:['Quality assurance','Ethical design','Planned obsolescence','Universal design'],correct:2,explanation:'Planned obsolescence is the intentional design of a limited product lifespan to encourage repeat purchasing — considered unethical as it generates unnecessary waste and exploits consumers.'},
+    {question:'Why must designers research cultural context before designing for an international market?',options:['To reduce manufacturing costs','To avoid producing products that are offensive or unappealing in the target culture','To meet international quality standards','To ensure the product can be patented internationally'],correct:1,explanation:'Cultural research ensures colours, symbols, materials and imagery are appropriate and respectful — avoiding products that cause offence or fail commercially due to cultural misunderstanding.'},
+    {question:'Why is inclusive design good for business as well as society?',options:['It reduces the cost of materials','It expands the potential market by making products usable by more people','It eliminates the need for quality control','It reduces the need for marketing'],correct:1,explanation:'Products usable by more people sell to more people — expanding the market. Inclusive design also enhances brand reputation and demonstrates social responsibility.'},
+  ]
+},
+
+/* ─────────────────── 10. WHAT YOUR TEXTBOOK DOESN'T TELL YOU ─────────────────── */
+{
+  id:'textbook_gaps', icon:'⚠️', title:"What Your Textbook Doesn't Tell You",
+  subtitle:'Syllabus topics not fully covered in the standard textbook — read this carefully',
+  flashcards:[
+    {topic:'Thermosetting Plastics',question:'What is urea formaldehyde (UF) and give two uses?',answer:'A thermosetting plastic with high tensile strength and low water absorption. Used for buttons, toilet seats, electrical fittings and as an adhesive to bond MDF and pressed wood products.'},
+    {topic:'Thermosetting Plastics',question:'What is phenol formaldehyde (PF) and give two uses?',answer:'A hard, chemically resistant thermosetting polymer with high hardness and good thermal stability. Used for laboratory worktops, billiard balls and printed circuit boards.'},
+    {topic:'Adhesives',question:'What is meant by the curing time of an adhesive?',answer:'The time needed for an adhesive to fully set and reach its maximum strength. During curing, parts must be held firmly in place with clamps and must not be disturbed.'},
+    {topic:'Adhesives',question:'Compare the curing time and strength of PVA, epoxy resin and synthetic resin.',answer:'PVA — ~24 hours, moderate strength, not waterproof. Epoxy resin — 5–30 min (fast set) or hours (standard), very high strength, waterproof. Synthetic resin — mixed with water, hours, water-resistant, stronger than PVA.'},
+    {topic:'Adhesives',question:'Why is it important to know an adhesive\'s curing time before removing clamps?',answer:'Removing clamps too early — before the adhesive has fully cured — weakens the joint significantly. The adhesive may not have reached full strength, causing the joint to fail under load.'},
+    {topic:'Marking Out Tools',question:'What is a sliding bevel and what is it used for?',answer:'A marking tool with an adjustable blade that locks at any angle. Used to mark or check angles other than 90° or 45° — e.g. dovetail joint angles or chamfered edges.'},
+    {topic:'Cutting Tools',question:'What are hand snips (tin snips) used for?',answer:'Scissor-like hand tools for cutting thin sheet metal. Straight snips cut straight lines; aviation snips cut curves and irregular shapes in thin sheet metal.'},
+    {topic:'Cutting Tools',question:'What is a scoring tool used for?',answer:'A tool with a hardened point used to score a straight line across plastic sheet. The sheet is then snapped along the scored line — used for straight cuts in acrylic and similar plastics.'},
+    {topic:'Cutting Tools',question:'What is a spokeshave used for?',answer:'A hand tool used to shape and smooth curved edges on wood. It removes thin shavings and is used for curved chair legs, tool handles and organic shapes.'},
+    {topic:'Cutting Tools',question:'What is a gouge used for?',answer:'A chisel with a curved blade used to hollow out and shape wood — for example in wood turning and carving, creating concave surfaces and decorative shapes.'},
+    {topic:'Cutting Tools',question:'What is a cold chisel used for?',answer:'A hardened steel chisel used to cut, chip or split metal — used with a hammer to cut off bolt heads or remove material from castings. It has no wooden handle.'},
+    {topic:'Cutting Tools',question:'What is a wheel brace and bit used for?',answer:'A hand tool for drilling holes in wood. The wheel brace turns a twist bit using a rotating handle — used where power tools are unavailable.'},
+    {topic:'Machine Tools',question:'What is a wood turning lathe and how does it differ from a centre lathe?',answer:'A wood turning lathe rotates wood while the operator shapes it with hand-held chisels and gouges. A centre lathe uses fixed mechanically fed cutting tools for shaping metal components.'},
+    {topic:'Machine Tools',question:'What is an off-hand grinder used for?',answer:'A bench-mounted machine with abrasive grinding wheels used to shape, sharpen and finish metal — for example sharpening chisels, grinding tool steel and removing metal burrs.'},
+    {topic:'Machine Tools',question:'What is a planer thicknesser used for?',answer:'A machine that planes timber to a precise, consistent thickness and smooths its surface — producing a flat, smooth face and ensuring uniform thickness across the whole length of a board.'},
+    {topic:'Machine Tools',question:'What is an abrasive mop used for?',answer:'A rotating fabric wheel impregnated with abrasive compound, fitted to a polishing machine. Used to smooth and polish surfaces of metals and plastics to a high-quality finish.'},
+    {topic:'Taps & Dies',question:'What is a tap and what is the correct sequence for tapping a hole?',answer:'A tap cuts an internal screw thread in a drilled pilot hole. Sequence: drill pilot hole → taper tap (starts thread) → second/plug tap (full thread depth) → bottoming tap for blind holes. Use cutting fluid throughout.'},
+    {topic:'Taps & Dies',question:'What is a die used for?',answer:'A hardened steel tool that cuts an external screw thread on the outside of a round metal rod — creating a threaded rod or stud. Used with a die stock handle.'},
+    {topic:'Joinery',question:'What is a housing joint and where is it used?',answer:'A shelf or panel slots into a channel (housing) cut across the grain of a side piece. Used in carcase furniture such as bookcases and cabinets.'},
+    {topic:'Joinery',question:'What is a bridle joint and where is it used?',answer:'A joint where a tenon fits into an open-ended mortise slot. Used in frame construction — at corners of frames, tables and chairs where strength and rigidity are needed.'},
+    {topic:'Joinery',question:'What is carcase construction and what prevents it from racking?',answer:'A box-like method of building furniture (cabinets, bookcases, drawers) using panels joined at corners. The back panel prevents racking — the tendency of the box to lean or distort sideways under load.'},
+    {topic:'Finishes',question:'What is lacquer and what is it used for?',answer:'A fast-drying clear or coloured finish applied by brush or spray to wood and metal. It dries to a hard, protective glossy coating. Used on furniture, musical instruments and metal components to prevent tarnishing.'},
+    {topic:'Finishes',question:'What is the difference between interior and exterior finishes?',answer:'Interior finishes (wax polish, French polish, cellulose sealant) are for indoor use only — not weather resistant. Exterior finishes (exterior stain, varnish, exterior paint, oil) resist moisture, UV light and temperature outdoors.'},
+  ],
+  notes:[
+    {title:'Why This Section Exists',summary:'The standard textbook is excellent but does not cover every topic in the 0445 syllabus.',
+     paragraphs:['The textbooks used in this course are excellent resources — but they do not cover every topic that appears in the Cambridge IGCSE Design & Technology 0445 examination. Many students study only from their textbook and are unaware of these gaps, leaving them unprepared for questions that examiners regularly set on content that simply is not in the book.','This section covers exactly those topics — the items explicitly listed in the 0445 syllabus specification that the standard textbook either omits or covers only briefly. It is strongly recommended that every student works through this section carefully alongside their main revision.'],
+     keyPoints:['UF and PF thermosetting plastics — listed in syllabus but poorly covered in textbook','Adhesive curing times and strengths — explicitly in syllabus learning objectives','Sliding bevel — explicitly listed as a required marking out tool in the syllabus','Hand snips, scoring tool, spokeshave, gouge, cold chisel, wheel brace — all in the syllabus shaping section','Taps and dies for screw cutting — explicitly in the syllabus, not in the textbook','Wood turning lathe (separate from centre lathe) — listed separately in the syllabus','Off-hand grinder, disk sander, planer thicknesser, abrasive mop — in the syllabus machine tools list','Housing joint and bridle joint — in the syllabus but not in the textbook','Carcase, stool and frame construction — explicitly required by the syllabus','Lacquer — listed in the finishes section of the syllabus','Interior vs exterior finishes distinction — explicitly required by the syllabus'],
+     keyTerms:[{term:'Syllabus',definition:'The official Cambridge 0445 specification listing all topics that may be examined.'},{term:'Learning objective',definition:'A specific skill or piece of knowledge that students must be able to demonstrate in the examination.'}]},
+    {title:'Tools Not Fully Covered in the Textbook',summary:'Several specific tools listed in the 0445 syllabus are absent or barely mentioned in the standard textbook.',
+     paragraphs:['The syllabus explicitly lists tools that students must know. Several of these are not covered adequately in the standard textbook. Students who rely solely on the textbook will not know these tools and may lose marks in the examination.'],
+     keyPoints:['Sliding bevel — adjustable angle marking tool; locks at any angle; marks/checks any angle','Hand snips (tin snips) — cut thin sheet metal; straight type for straight cuts; aviation type for curves','Scoring tool — scores a line across plastic sheet; sheet is then snapped along the line','Spokeshave — shapes and smooths curved edges in wood; used for chair legs and handles','Gouge — curved-blade chisel; hollows out and shapes wood; used in wood turning and carving','Cold chisel — hardened steel; cuts metal without wooden handle; used with hammer','Wheel brace and bit — hand drill for wood; rotating handle turns twist bit','Taps — cut internal screw thread; taper tap first, then plug tap, then bottoming tap for blind holes','Dies — cut external screw thread on rod; used with die stock handle; always use cutting fluid','Wood turning lathe — hand-held chisels on rotating wood; differs from centre lathe (fixed tools, metal)','Off-hand grinder — bench machine; abrasive wheels; sharpens tools, grinds metal','Planer thicknesser — machines timber to precise consistent thickness','Abrasive mop — rotating fabric wheel on polishing machine; smooths/polishes metal and plastic'],
+     keyTerms:[{term:'Tap',definition:'A hardened steel tool for cutting internal screw threads in drilled holes.'},{term:'Die',definition:'A hardened steel tool for cutting external screw threads on round rods.'},{term:'Sliding bevel',definition:'An adjustable marking tool that locks at any angle.'},{term:'Spokeshave',definition:'A hand tool for shaping and smoothing curved edges in wood.'},{term:'Gouge',definition:'A chisel with a curved blade for hollowing and shaping wood.'}]},
+    {title:'Joints and Construction Methods Not in the Textbook',summary:'Housing joint, bridle joint, and carcase/frame/stool construction are all required by the syllabus.',
+     paragraphs:['The syllabus explicitly states that students must understand methods of carcase, stool and frame construction including different types of joints. The housing joint and bridle joint are also specifically required. None of these are adequately covered in the standard textbook.'],
+     keyPoints:['Housing joint — shelf slots into channel cut ACROSS the grain; used in bookcases, cabinets, carcase furniture','Bridle joint — tenon fits into OPEN-ENDED mortise; used in frame construction, tables, chairs','Carcase construction — box-like furniture (cabinets, bookcases, drawers); corner joints + back panel','Back panel prevents RACKING — sideways distortion of the carcase under load','Frame construction — skeleton of timber members joined at corners; mortise and tenon or bridle joints','Stool/chair — seat-to-leg joints under greatest stress; must be very securely fastened','Mortise and tenon used for square legs; blind holes with round dowels for circular legs','Dry-assemble carcase before final gluing — allows fitting of shelves, hinges and back panel'],
+     keyTerms:[{term:'Housing joint',definition:'A shelf or panel slots into a channel cut across the grain — used in carcase furniture.'},{term:'Bridle joint',definition:'A tenon fits into an open-ended mortise — used in frame construction.'},{term:'Carcase',definition:'Box-like furniture construction with a back panel to prevent racking.'},{term:'Racking',definition:'The tendency of a frame or carcase to lean sideways under load.'}]},
+    {title:'Finishes and Adhesives Not Fully Covered',summary:'Lacquer, interior vs exterior finishes and adhesive curing times are all required by the syllabus.',
+     paragraphs:['The syllabus specifically requires knowledge of lacquers, the distinction between interior and exterior finishes, and adhesive curing times and strengths. These are either absent or only briefly mentioned in the standard textbook.'],
+     keyPoints:['Lacquer — clear or coloured; brush or spray applied; fast-drying; hard protective glossy finish on wood and metal','Interior finishes — wax, French polish, cellulose sealant; indoor use ONLY; NOT weather resistant','Exterior finishes — exterior wood stain, varnish, exterior paint, oil; resist moisture, UV and temperature','PVA — ~24 hours cure; moderate strength; NOT waterproof','Epoxy resin — 5–30 min (fast set) or hours (standard); VERY strong; waterproof','Synthetic resin — mix with water before use; hours to cure; water-resistant; stronger than PVA','Always clamp during curing; never remove clamps before adhesive has fully set','Solvent-based adhesives and finishes — use in well-ventilated areas; fumes are flammable and harmful'],
+     keyTerms:[{term:'Lacquer',definition:'A fast-drying protective finish applied by brush or spray to wood or metal surfaces.'},{term:'Interior finish',definition:'A finish for indoor use only — not weather resistant.'},{term:'Exterior finish',definition:'A finish formulated to withstand outdoor moisture, UV and temperature.'},{term:'Curing time',definition:'The time needed for an adhesive to fully set and reach maximum strength.'}]},
+  ],
+  mcqs:[
+    {question:'What tool is used to cut an internal screw thread inside a drilled hole in metal?',options:['Die','Tap','Drill bit','Countersink'],correct:1,explanation:'A tap cuts internal threads inside a drilled hole. A die cuts external threads on rods.'},
+    {question:'What is the main difference between a wood turning lathe and a centre lathe?',options:['Speed only','A wood lathe uses hand-held tools on rotating wood; a centre lathe uses fixed tools for metal','A centre lathe is for wood; a wood lathe is for metal','They are identical machines'],correct:1,explanation:'A wood turning lathe uses hand-held chisels and gouges applied to rotating wood. A centre lathe uses fixed mechanically fed cutting tools designed for metal.'},
+    {question:'A housing joint is used primarily for:',options:['Joining two metal plates permanently','Supporting a shelf by slotting it into a channel cut across the grain','Forming a curved shape in wood','Joining plastic with solvent cement'],correct:1,explanation:'A housing joint cuts a channel across the grain into which a shelf or partition slots — widely used in carcase furniture like bookcases and cabinets.'},
+    {question:'Which of the following is an EXTERIOR finish for outdoor wood?',options:['French polish','Wax polish','Exterior wood stain','Cellulose sealant'],correct:2,explanation:'Exterior wood stain resists moisture, UV and temperature. French polish, wax and cellulose sealant are interior finishes unsuitable for outdoor use.'},
+    {question:'What is phenol formaldehyde (PF) used for?',options:['Injection moulded toys','Laboratory worktops and printed circuit boards','Pipes and water fittings','Packaging films and bottles'],correct:1,explanation:'Phenol formaldehyde has high hardness, thermal stability and chemical resistance — ideal for lab worktops, billiard balls and printed circuit boards.'},
+    {question:'What are hand snips used for?',options:['Cutting curves in wood','Cutting thin sheet metal by hand','Cutting plastic pipe','Trimming timber to length'],correct:1,explanation:'Hand snips (tin snips) are scissor-like tools designed specifically for cutting thin sheet metal by hand.'},
+    {question:'Why is it important to know an adhesive\'s curing time?',options:['To choose the right colour','To know when it is safe to remove clamps without weakening the joint','To calculate the cost','To decide which brush to use'],correct:1,explanation:'Removing clamps before an adhesive has fully cured weakens the joint significantly — it may not have reached full strength, causing it to fail under load.'},
+    {question:'What is a bridle joint?',options:['A shelf slotted into a groove','A joint where a tenon fits into an open-ended mortise — used in frame construction','A KD fitting for flat-pack furniture','A method of joining sheet metal'],correct:1,explanation:'A bridle joint has a tenon fitting into an open-ended mortise slot. Used in frame construction at corners of tables, chairs and frames.'},
+    {question:'What is an abrasive mop used for?',options:['Cutting curved shapes in wood','Polishing and smoothing metal and plastic surfaces on a bench machine','Sanding flat timber surfaces','Removing paint from metal'],correct:1,explanation:'An abrasive mop is a rotating fabric wheel impregnated with abrasive compound — used on a polishing/bench machine to smooth and polish metal and plastic surfaces.'},
+    {question:'What is urea formaldehyde (UF) commonly used for?',options:['Boat hulls and car body panels','Buttons, toilet seats and bonding MDF','Aircraft canopies and signs','Pipes, flooring and clothing'],correct:1,explanation:'Urea formaldehyde (UF) is a thermosetting plastic with high tensile strength and low water absorption — used for buttons, toilet seats, electrical fittings and as an adhesive to bond MDF.'},
+  ]
+}
+
+]; // end SECTIONS array
+
+/* ═══════════════════════════════════════════════════
+   APP STATE
+═══════════════════════════════════════════════════ */
+const S = {
+  section: null,
+  fc: { cards:[], idx:0, flipped:false, known:0, missed:0, missedCards:[] },
+  quiz: { questions:[], idx:0, score:0, answered:false }
+};
+
+/* ═══════════════════════════════════════════════════
+   HOME
+═══════════════════════════════════════════════════ */
+function renderHome() {
+  const grid = document.getElementById('sections-grid');
+  grid.innerHTML = '';
+  SECTIONS.forEach(sec => {
+    const imgUrl = IMG[sec.id] || '';
+    const card = document.createElement('div');
+    card.className = 's-card';
+    card.innerHTML = `
+      ${imgUrl ? `<img class="card-img" src="${imgUrl}" alt="${sec.title}" loading="lazy"/>` : ''}
+      <div class="card-content">
+        <div class="card-top">
+          <span class="card-icon">${sec.icon}</span>
+          <span class="card-status">Ready</span>
+        </div>
+        <div class="card-title">${sec.title}</div>
+        <div class="card-sub">${sec.subtitle}</div>
+        <div class="card-stats">
+          <span class="stat">${sec.flashcards.length} flashcards</span>
+          <span class="stat">${sec.mcqs.length} quiz Qs</span>
+          <span class="stat">${sec.notes.length} note topics</span>
+        </div>
+      </div>`;
+    card.addEventListener('click', () => openSection(sec.id));
+    grid.appendChild(card);
+  });
+}
+
+/* ═══════════════════════════════════════════════════
+   NAVIGATION
+═══════════════════════════════════════════════════ */
+function openSection(id) {
+  const sec = SECTIONS.find(s => s.id === id);
+  S.section = id;
+  document.getElementById('viewer-icon').textContent  = sec.icon;
+  document.getElementById('viewer-title').textContent = sec.title;
+  document.getElementById('viewer-desc').textContent  = sec.subtitle;
+
+  // Set section banner image
+  const bannerImg = document.getElementById('section-banner-img');
+  const imgUrl = IMG[id] || IMG.manufacturing;
+  bannerImg.src = imgUrl;
+  bannerImg.alt = sec.title;
+
+  // Set flashcard section image
+  const fcImg = document.getElementById('fc-card-img');
+  fcImg.src = imgUrl;
+  fcImg.alt = sec.title;
+
+  const notesWrap = document.getElementById('notes-wrap');
+  if (id === 'textbook_gaps') {
+    notesWrap.setAttribute('data-special','true');
+  } else {
+    notesWrap.removeAttribute('data-special');
+  }
+
+  showScreen('screen-section');
+  switchTab('flashcards');
+}
+
+function goHome() {
+  S.section = null;
+  showScreen('screen-home');
+}
+
+function showScreen(id) {
+  document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  window.scrollTo(0, 0);
+}
+
+function switchTab(tab) {
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.toggle('active', b.dataset.tab === tab));
+  document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+  document.getElementById('panel-' + tab).classList.add('active');
+  const sec = SECTIONS.find(s => s.id === S.section);
+  if (tab === 'flashcards') initFlashcards(sec);
+  if (tab === 'notes')      initNotes(sec);
+  if (tab === 'quiz')       initQuiz(sec);
+}
+
+/* ═══════════════════════════════════════════════════
+   FLASHCARDS
+═══════════════════════════════════════════════════ */
+function initFlashcards(sec, cards) {
+  const fc = S.fc;
+  fc.cards = shuffle(cards || [...sec.flashcards]);
+  fc.idx = 0; fc.flipped = false; fc.known = 0; fc.missed = 0; fc.missedCards = [];
+  document.getElementById('fc-complete').style.display = 'none';
+  document.getElementById('fc-scene').style.display = '';
+  document.getElementById('fc-actions').style.display = '';
+  renderFC();
+}
+
+function renderFC() {
+  const fc = S.fc;
+  const card = fc.cards[fc.idx];
+  document.getElementById('fc-card').classList.remove('flipped');
+  fc.flipped = false;
+  document.getElementById('fc-q').textContent      = card.question;
+  document.getElementById('fc-a').textContent      = card.answer;
+  document.getElementById('fc-topic').textContent  = card.topic || '';
+  document.getElementById('fc-fill').style.width   = (fc.idx / fc.cards.length * 100) + '%';
+  document.getElementById('fc-counter').textContent = `Card ${fc.idx + 1} of ${fc.cards.length}`;
+  document.getElementById('fc-known').textContent   = fc.known + ' known';
+  document.getElementById('fc-learning').textContent = fc.missed + ' to review';
+}
+
+function flipCard() {
+  S.fc.flipped = !S.fc.flipped;
+  document.getElementById('fc-card').classList.toggle('flipped', S.fc.flipped);
+}
+
+function nextCard(known) {
+  const fc = S.fc;
+  if (known) fc.known++; else { fc.missed++; fc.missedCards.push(fc.cards[fc.idx]); }
+  fc.idx++;
+  if (fc.idx >= fc.cards.length) showFcComplete();
+  else renderFC();
+}
+
+function showFcComplete() {
+  document.getElementById('fc-scene').style.display   = 'none';
+  document.getElementById('fc-actions').style.display = 'none';
+  const fc = S.fc;
+  const pct = Math.round((fc.known / (fc.known + fc.missed)) * 100);
+  document.getElementById('fc-complete-title').textContent = pct === 100 ? '🎉 Perfect Round!' : pct >= 70 ? '👍 Well done!' : '📚 Keep Practising!';
+  document.getElementById('fc-complete-msg').textContent   = `You got ${fc.known} out of ${fc.known + fc.missed} correct (${pct}%).` + (fc.missed > 0 ? ` Review the ${fc.missed} card${fc.missed > 1 ? 's' : ''} you missed.` : '');
+  document.getElementById('review-btn').style.display = fc.missed > 0 ? 'inline-block' : 'none';
+  document.getElementById('fc-fill').style.width = '100%';
+  document.getElementById('fc-complete').style.display = 'block';
+}
+
+function restartFlashcards() { initFlashcards(SECTIONS.find(s => s.id === S.section)); }
+function reviewUnknown()     { if (S.fc.missedCards.length) initFlashcards(SECTIONS.find(s => s.id === S.section), S.fc.missedCards); }
+
+/* ═══════════════════════════════════════════════════
+   NOTES
+═══════════════════════════════════════════════════ */
+/* ═══════════════════════════════════════════════════
+   NOTES IMAGE MAP — maps note titles to image keys
+═══════════════════════════════════════════════════ */
+const NOTE_IMGS = {
+  'The Design Process': 'design_process',
+  'Ergonomics & Anthropometrics': 'ergonomics',
+  'Aesthetics & Product Analysis': 'aesthetics',
+  '3.1 Types of Materials & Properties': 'metals',
+  '3.2 Smart and Modern Materials': 'smart_materials',
+  '3.3 Plastics': 'plastics',
+  '3.4 Wood': 'wood',
+  '3.5 Composites': 'composites',
+  '3.6 Metals': 'metals',
+  '3.7 Preparation of Materials': 'preparation',
+  '3.8 Setting, Measuring, Marking Out and Testing': 'marking_out',
+  '3.9 Shaping — Tools and Processes': 'shaping',
+  '3.10 Joining and Assembly': 'joining',
+  '3.11 Finishes': 'finishes',
+  'Forms of Energy — Conventional and Renewable': 'energy',
+  'The Six R\'s and Energy Efficiency': 'six_rs',
+  'Recycling, Disassembly and Planned Obsolescence': 'recycling',
+  'CAD — Computer Aided Design': 'cad_software',
+  'CAM — Computer Aided Manufacture': 'cam_machines',
+  'Advantages, Disadvantages and Industry Applications': 'cad_software',
+  'One-off Production': 'one_off',
+  'Batch Production': 'batch',
+  'Mass Production and Economies of Scale': 'mass',
+  'Jigs, Templates, Formers and Choosing a Method': 'batch',
+  'Workshop Safety Rules and Behaviour': 'shaping',
+  'Personal Protective Equipment (PPE)': 'ppe',
+  'Risk Assessment': 'risk',
+  'Safe Tool Use and COSHH': 'preparation',
+  'Quality Control': 'qc',
+  'Quality Assurance': 'qc',
+  'Tolerances': 'tolerances',
+  'Checking and Testing Methods': 'qc',
+  'Social Issues in Design': 'social',
+  'Moral & Ethical Responsibilities': 'ethics',
+  'Cultural Considerations': 'culture',
+  'Inclusive & Universal Design': 'inclusive',
+  'Why This Section Exists': 'textbook_gaps',
+  'Tools Not Fully Covered in the Textbook': 'tools_missing',
+  'Joints and Construction Methods Not in the Textbook': 'joints_missing',
+  'Finishes and Adhesives Not Fully Covered': 'finishes_missing',
+};
+
+function initNotes(sec) {
+  const wrap = document.getElementById('notes-wrap');
+  wrap.innerHTML = '';
+
+  if (sec.id === 'textbook_gaps') {
+    const alert = document.createElement('div');
+    alert.className = 'textbook-alert';
+    alert.innerHTML = `<strong>⚠️ Important — Read This First</strong><br>The textbooks used in this course are excellent resources — but they do not cover every topic that appears in the Cambridge IGCSE Design & Technology 0445 examination. Many students study only from their textbook and are unaware of these gaps, leaving them unprepared for questions that examiners regularly set on content that simply is not in the book. This section covers all the topics explicitly listed in the 0445 syllabus specification that the standard textbook either omits or covers only briefly. <strong>It is strongly recommended that every student works through this section carefully alongside their main revision.</strong>`;
+    wrap.appendChild(alert);
+  }
+
+  sec.notes.forEach(topic => {
+    const imgKey = NOTE_IMGS[topic.title];
+    const imgUrl = imgKey ? IMG[imgKey] : null;
+    const div = document.createElement('div');
+    div.className = 'note-item';
+    div.innerHTML = `
+      <div class="note-head" onclick="toggleNote(this)">
+        ${imgUrl ? `<img class="note-topic-img" src="${imgUrl}" alt="${topic.title}" loading="lazy" style="display:none;width:100%;height:120px;object-fit:cover;border-radius:6px 6px 0 0;margin-bottom:12px;">` : ''}
+        <span class="note-head-title">${topic.title}</span>
+        <span class="note-chevron">▾</span>
+      </div>
+      <div class="note-body">
+        ${imgUrl ? `<img src="${imgUrl}" alt="${topic.title}" loading="lazy" style="width:100%;height:160px;object-fit:cover;border-radius:6px;margin-bottom:16px;filter:brightness(0.85);">` : ''}
+        ${topic.summary ? `<div class="note-summary">${topic.summary}</div>` : ''}
+        <div class="note-paras">${(topic.paragraphs||[]).map(p=>`<p>${p}</p>`).join('')}</div>
+        ${topic.keyPoints?.length ? `<div class="note-kp"><div class="note-kp-title">Key Points</div><ul>${topic.keyPoints.map(k=>`<li>${k}</li>`).join('')}</ul></div>` : ''}
+        ${topic.keyTerms?.length ? `<div class="note-terms">${topic.keyTerms.map(kt=>`<div class="keyterm"><div class="keyterm-word">${kt.term}</div><div class="keyterm-def">${kt.definition}</div></div>`).join('')}</div>` : ''}
+      </div>`;
+    wrap.appendChild(div);
+  });
+}
+
+function toggleNote(head) { head.parentElement.classList.toggle('open'); }
+
+/* ═══════════════════════════════════════════════════
+   QUIZ
+═══════════════════════════════════════════════════ */
+function initQuiz(sec) {
+  const q = S.quiz;
+  q.questions = shuffle([...sec.mcqs]);
+  q.idx = 0; q.score = 0; q.answered = false;
+  document.getElementById('quiz-active').style.display  = 'block';
+  document.getElementById('quiz-results').style.display = 'none';
+  renderQuestion();
+}
+
+function renderQuestion() {
+  const q = S.quiz;
+  const item = q.questions[q.idx];
+  q.answered = false;
+  document.getElementById('quiz-qnum').textContent = `Question ${q.idx + 1} of ${q.questions.length}`;
+  document.getElementById('quiz-score-disp').textContent = `Score: ${q.score}`;
+  document.getElementById('quiz-fill').style.width = (q.idx / q.questions.length * 100) + '%';
+  document.getElementById('quiz-q').textContent = item.question;
+  const opts = document.getElementById('quiz-opts');
+  opts.innerHTML = '';
+  item.options.forEach((opt, i) => {
+    const btn = document.createElement('button');
+    btn.className = 'quiz-opt';
+    btn.textContent = opt;
+    btn.addEventListener('click', () => selectAnswer(i));
+    opts.appendChild(btn);
+  });
+  document.getElementById('quiz-exp').classList.remove('show');
+  document.getElementById('btn-next').classList.remove('show');
+}
+
+function selectAnswer(idx) {
+  if (S.quiz.answered) return;
+  S.quiz.answered = true;
+  const item = S.quiz.questions[S.quiz.idx];
+  const btns = document.querySelectorAll('.quiz-opt');
+  btns.forEach(b => b.disabled = true);
+  btns[item.correct].classList.add('correct');
+  if (idx !== item.correct) btns[idx].classList.add('wrong');
+  else S.quiz.score++;
+  if (item.explanation) {
+    const exp = document.getElementById('quiz-exp');
+    exp.textContent = '💡 ' + item.explanation;
+    exp.classList.add('show');
+  }
+  document.getElementById('btn-next').classList.add('show');
+}
+
+function nextQuestion() {
+  S.quiz.idx++;
+  if (S.quiz.idx >= S.quiz.questions.length) showQuizResults();
+  else renderQuestion();
+}
+
+function showQuizResults() {
+  document.getElementById('quiz-active').style.display  = 'none';
+  document.getElementById('quiz-results').style.display = 'block';
+  const { score, questions } = S.quiz;
+  const pct = Math.round((score / questions.length) * 100);
+  document.getElementById('quiz-big').textContent = `${score}/${questions.length}`;
+  document.getElementById('quiz-msg').textContent = pct >= 80 ? `${pct}% — Excellent! 🎉` : pct >= 60 ? `${pct}% — Good effort, keep revising!` : `${pct}% — More practice needed. You\'ve got this!`;
+}
+
+function restartQuiz() { initQuiz(SECTIONS.find(s => s.id === S.section)); }
+
+/* ═══════════════════════════════════════════════════
+   UTILITIES
+═══════════════════════════════════════════════════ */
+function shuffle(arr) {
+  for (let i = arr.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [arr[i], arr[j]] = [arr[j], arr[i]];
+  }
+  return arr;
+}
+
+/* ═══════════════════════════════════════════════════
+   EVENT LISTENERS & BOOT
+═══════════════════════════════════════════════════ */
+document.getElementById('back-btn').addEventListener('click', goHome);
+document.querySelectorAll('.tab-btn').forEach(btn => btn.addEventListener('click', () => switchTab(btn.dataset.tab)));
+renderHome();
+</script>
+</body>
+</html>
